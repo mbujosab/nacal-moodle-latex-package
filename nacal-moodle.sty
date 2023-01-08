@@ -22,11 +22,9 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[2005/12/01]
 \ProvidesPackage{nacal-moodle}
-    [2023/01/04 v1.0 Notación Asociativa para un Curso de Álgebra en Moodle]
+    [2023/01/08 v1.0 Notación Asociativa para un Curso de Álgebra en Moodle]
 \RequirePackage{moodle}
-\RequirePackage{etex}
-\RequirePackage{amsmath,amssymb}
-\RequirePackage{xcolor}
+\RequirePackage{nacal}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% --- Conjuntos de números
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -41,21 +39,26 @@
 \html@def\Parentesis#1{\left(#1\right)}
 \html@def\corchetes#1{[#1]}
 \html@def\Corchetes#1{\left[#1\right]}
+\html@def\Corchetes#1{\left[#1\right]}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% --- Algunos operadores (subíndices a derecha e izquierda)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\html@def\LRidxE#1#2#3#4{{_{#2}^{}}{{#1}}{_{#3}^{#4}}}
-\html@def\LidxE#1#2#3{{_{#2}^{}}{{#1}}{_{}^{#3}}}
-\html@def\RidxE#1#2#3{{}{{#1}}{_{#2}^{#3}}}
-\html@def\LRidx#1#2#3{ \LRidxE{#1}{#2}{#3}{} }
-\html@def\Lidx#1#2{ \LidxE{#1}{#2}{} }
-\html@def\Ridx#1#2{ \RidxE{#1}{#2}{} }
-\html@def\Lidxp#1#2{ \Lidx{\parentesis{#1}}{#2}{} }
-\html@def\LidxP#1#2{ \Lidx{\Parentesis{#1}}{#2}{} }
+\html@def\LRidxE#1#2#3#4{ {_{#2}^{}}{{#1}}{_{#3}^{#4}} }
+\html@def\LidxE   #1#2#3{ {_{#2}^{}}{{#1}}{_{  }^{#3}} }
+\html@def\RidxE   #1#2#3{ {        }{{#1}}{_{#2}^{#3}} }
+\html@def\LRidx  #1#2#3{ \LRidxE{#1}{#2}{#3}{} }
+\html@def\LRidxp #1#2#3{ \LRidxE{\parentesis{#1}}{#2}{#3}{} }
+\html@def\LRidxP #1#2#3{ \LRidxE{\Parentesis{#1}}{#2}{#3}{} }
+\html@def\LRidxpE#1#2#3{ \parentesis{\LRidxE{#1}{#2}{#3}{}} }
+\html@def\LRidxPE#1#2#3{ \Parentesis{\LRidxE{#1}{#2}{#3}{}} }
+\html@def\Lidx  #1#2{ \LidxE{#1}{#2}{} }
+\html@def\Lidxp #1#2{ \Lidx{\parentesis{#1}}{#2}{} }
+\html@def\LidxP #1#2{ \Lidx{\Parentesis{#1}}{#2}{} }
 \html@def\LidxpE#1#2{ \parentesis{\Lidx{#1}{#2}{}} }
 \html@def\LidxPE#1#2{ \Parentesis{\Lidx{#1}{#2}{}} }
-\html@def\Ridxp#1#2{ \Ridx{\parentesis{#1}}{#2}{} }
-\html@def\RidxP#1#2{ \Ridx{\Parentesis{#1}}{#2}{} }
+\html@def\Ridx  #1#2{ \RidxE{#1}{#2}{} }
+\html@def\Ridxp #1#2{ \Ridx{\parentesis{#1}}{#2}{} }
+\html@def\RidxP #1#2{ \Ridx{\Parentesis{#1}}{#2}{} }
 \html@def\RidxpE#1#2{ \parentesis{\Ridx{#1}{#2}{}} }
 \html@def\RidxPE#1#2{ \Parentesis{\Ridx{#1}{#2}{}} }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -76,18 +79,18 @@
 %% --- Transposición
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \html@def\T{\intercal}
-\html@def\Trans#1{#1^{\mathbin{\T}}}
-\html@def\Transp#1{\Trans{\parentesis{#1}}}
-\html@def\TransP#1{\Trans{\Parentesis{#1}}}
+\html@def\Trans  #1{#1^{\mathbin{\T}}}
+\html@def\Transp #1{\Trans{\parentesis{#1}}}
+\html@def\TransP #1{\Trans{\Parentesis{#1}}}
 \html@def\TranspE#1{\parentesis{\Trans{#1}}}
 \html@def\TransPE#1{\Parentesis{\Trans{#1}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% --- Algunos operadores (Inversa)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \html@def\minus{\hbox{-}}
-\html@def\Inv#1{{#1}^{\minus1}}
-\html@def\Invp#1{\Inv{\parentesis{#1}}}
-\html@def\InvP#1{\Inv{\Parentesis{#1}}}
+\html@def\Inv  #1{{#1}^{\minus1}}
+\html@def\Invp #1{\Inv{\parentesis{#1}}}
+\html@def\InvP #1{\Inv{\Parentesis{#1}}}
 \html@def\InvpE#1{\parentesis{\Inv{#1}}}
 \html@def\InvPE#1{\Parentesis{\Inv{#1}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -97,63 +100,63 @@
 \html@def\getitemL#1{{#1}\mathbin{\getItem}}
 \html@def\getitemR#1{\mathbin{\getItem}{#1}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\html@def\elemL#1#2{\Lidx{#1}{\getitemL{#2}}}
-\html@def\elemLp#1#2{\elemL{\parentesis{#1}}{#2}}
-\html@def\elemLP#1#2{\elemL{\Parentesis{#1}}{#2}}
+\html@def\elemL  #1#2{\Lidx{#1}{\getitemL{#2}}}
+\html@def\elemLp #1#2{\elemL{\parentesis{#1}}{#2}}
+\html@def\elemLP #1#2{\elemL{\Parentesis{#1}}{#2}}
 \html@def\elemLpE#1#2{\parentesis{\elemL{#1}{#2}}}
 \html@def\elemLPE#1#2{\Parentesis{\elemL{#1}{#2}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\html@def\elemR#1#2{\Ridx{#1}{\getitemR{#2}}}
-\html@def\elemRp#1#2{\elemR{\parentesis{#1}}{#2}}
-\html@def\elemRP#1#2{\elemR{\Parentesis{#1}}{#2}}
+\html@def\elemR  #1#2{\Ridx{#1}{\getitemR{#2}}}
+\html@def\elemRp #1#2{\elemR{\parentesis{#1}}{#2}}
+\html@def\elemRP #1#2{\elemR{\Parentesis{#1}}{#2}}
 \html@def\elemRpE#1#2{\parentesis{\elemR{#1}{#2}}}
 \html@def\elemRPE#1#2{\Parentesis{\elemR{#1}{#2}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\html@def\elemLR#1#2#3{\LRidx{#1}{\getitemL{#2}}{\getitemR{#3}}}
-\html@def\elemLRp#1#2#3{\elemLR{\parentesis{#1}}{#2}{#3}}
-\html@def\elemLRP#1#2#3{\elemLR{\Parentesis{#1}}{#2}{#3}}
+\html@def\elemLR  #1#2#3{\LRidx{#1}{\getitemL{#2}}{\getitemR{#3}}}
+\html@def\elemLRp #1#2#3{\elemLR{\parentesis{#1}}{#2}{#3}}
+\html@def\elemLRP #1#2#3{\elemLR{\Parentesis{#1}}{#2}{#3}}
 \html@def\elemLRpE#1#2#3{\parentesis{\elemLR{#1}{#2}{#3}}}
 \html@def\elemLRPE#1#2#3{\Parentesis{\elemLR{#1}{#2}{#3}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% --- Operador selector con vectores
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\html@def\eleVL#1#2{\elemL{\Vect{#1}}{#2}}
-\html@def\eleVLp#1#2{\elemLp{\Vect{#1}}{#2}}
-\html@def\eleVLP#1#2{\elemLP{\Vect{#1}}{#2}}
+\html@def\eleVL  #1#2{\elemL  {\Vect{#1}}{#2}}
+\html@def\eleVLp #1#2{\elemLp {\Vect{#1}}{#2}}
+\html@def\eleVLP #1#2{\elemLP {\Vect{#1}}{#2}}
 \html@def\eleVLpE#1#2{\elemLpE{\Vect{#1}}{#2}}
 \html@def\eleVLPE#1#2{\elemLPE{\Vect{#1}}{#2}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\html@def\eleVR#1#2{\elemR{\Vect{#1}}{#2}}
-\html@def\eleVRp#1#2{\elemRp{\Vect{#1}}{#2}}
-\html@def\eleVRP#1#2{\elemRP{\Vect{#1}}{#2}}
+\html@def\eleVR  #1#2{\elemR  {\Vect{#1}}{#2}}
+\html@def\eleVRp #1#2{\elemRp {\Vect{#1}}{#2}}
+\html@def\eleVRP #1#2{\elemRP {\Vect{#1}}{#2}}
 \html@def\eleVRpE#1#2{\elemRpE{\Vect{#1}}{#2}}
 \html@def\eleVRPE#1#2{\elemRPE{\Vect{#1}}{#2}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% --- Operador selector con matrices
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\html@def\VectF#1#2{\elemL{\Mat{#1}}{#2}}
-\html@def\VectFp#1#2{\elemLp{\Mat{#1}}{#2}}
-\html@def\VectFP#1#2{\elemLP{\Mat{#1}}{#2}}
+\html@def\VectF  #1#2{\elemL  {\Mat{#1}}{#2}}
+\html@def\VectFp #1#2{\elemLp {\Mat{#1}}{#2}}
+\html@def\VectFP #1#2{\elemLP {\Mat{#1}}{#2}}
 \html@def\VectFpE#1#2{\elemLpE{\Mat{#1}}{#2}}
 \html@def\VectFPE#1#2{\elemLPE{\Mat{#1}}{#2}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\html@def\VectC#1#2{\elemR{\Mat{#1}}{#2}}
-\html@def\VectCp#1#2{\elemRp{\Mat{#1}}{#2}}
-\html@def\VectCP#1#2{\elemRP{\Mat{#1}}{#2}}
+\html@def\VectC  #1#2{\elemR  {\Mat{#1}}{#2}}
+\html@def\VectCp #1#2{\elemRp {\Mat{#1}}{#2}}
+\html@def\VectCP #1#2{\elemRP {\Mat{#1}}{#2}}
 \html@def\VectCpE#1#2{\elemRpE{\Mat{#1}}{#2}}
 \html@def\VectCPE#1#2{\elemRPE{\Mat{#1}}{#2}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\html@def\eleM#1#2#3{\elemLR{\Mat{#1}}{#2}{#3}}
-\html@def\eleMp#1#2#3{\elemLRp{\Mat{#1}}{#2}{#3}}
-\html@def\eleMP#1#2#3{\elemLRP{\Mat{#1}}{#2}{#3}}
+\html@def\eleM  #1#2#3{\elemLR  {\Mat{#1}}{#2}{#3}}
+\html@def\eleMp #1#2#3{\elemLRp {\Mat{#1}}{#2}{#3}}
+\html@def\eleMP #1#2#3{\elemLRP {\Mat{#1}}{#2}{#3}}
 \html@def\eleMpE#1#2#3{\elemLRpE{\Mat{#1}}{#2}{#3}}
 \html@def\eleMPE#1#2#3{\elemLRPE{\Mat{#1}}{#2}{#3}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\html@def\eleMT#1#2#3{\elemLRP{\Mat{#1}}{#2}{#3}}
-\html@def\eleMTp#1#2#3{\elemLRp{\MatTpE{#1}}{#2}{#3}}
-\html@def\eleMTP#1#2#3{\elemLRP{\MatTPE{#1}}{#2}{#3}}
+\html@def\eleMT  #1#2#3{\elemLRP {\MatT  {#1}}{#2}{#3}}
+\html@def\eleMTp #1#2#3{\elemLRp {\MatTpE{#1}}{#2}{#3}}
+\html@def\eleMTP #1#2#3{\elemLRP {\MatTPE{#1}}{#2}{#3}}
 \html@def\eleMTpE#1#2#3{\elemLRpE{\MatTpE{#1}}{#2}{#3}}
 \html@def\eleMTPE#1#2#3{\elemLRPE{\MatTPE{#1}}{#2}{#3}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -193,41 +196,41 @@
 %% --- Transf. elemental aplicada la izquierda o derecha de un objeto
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%% Tipo I - Fil %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\html@def\TESF#1#2#3#4{ \Lidx{#4}{ \OEsu{#1}{#2}{#3}\!} }
-\html@def\TESFp#1#2#3#4{ \Lidxp{#4}{ \OEsu{#1}{#2}{#3}\!\!} }
-\html@def\TESFP#1#2#3#4{ \LidxP{#4}{ \OEsu{#1}{#2}{#3}\!\!} }
+\html@def\TESF  #1#2#3#4{ \Lidx  {#4}{ \OEsu{#1}{#2}{#3}\!  } }
+\html@def\TESFp #1#2#3#4{ \Lidxp {#4}{ \OEsu{#1}{#2}{#3}\!\!} }
+\html@def\TESFP #1#2#3#4{ \LidxP {#4}{ \OEsu{#1}{#2}{#3}\!\!} }
 \html@def\TESFpE#1#2#3#4{ \LidxpE{#4}{ \OEsu{#1}{#2}{#3}\!\!} }
 \html@def\TESFPE#1#2#3#4{ \LidxPE{#4}{ \OEsu{#1}{#2}{#3}\!\!} }
 %%%%%%%%%%%% Tipo I - Col %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\html@def\TESC#1#2#3#4{ \Ridx{#4}{\!\OEsu{#1}{#2}{#3}  } }
-\html@def\TESCp#1#2#3#4{ \Ridxp{#4}{\!\!\OEsu{#1}{#2}{#3}  } }
-\html@def\TESCP#1#2#3#4{ \RidxP{#4}{\!\!\OEsu{#1}{#2}{#3}  } }
-\html@def\TESCpE#1#2#3#4{ \RidxpE{#4}{\!\OEsu{#1}{#2}{#3} } }
-\html@def\TESCPE#1#2#3#4{ \RidxPE{#4}{\!\OEsu{#1}{#2}{#3}  } }
+\html@def\TESC  #1#2#3#4{ \Ridx  {#4}{  \!\OEsu{#1}{#2}{#3} } }
+\html@def\TESCp #1#2#3#4{ \Ridxp {#4}{\!\!\OEsu{#1}{#2}{#3} } }
+\html@def\TESCP #1#2#3#4{ \RidxP {#4}{\!\!\OEsu{#1}{#2}{#3} } }
+\html@def\TESCpE#1#2#3#4{ \RidxpE{#4}{  \!\OEsu{#1}{#2}{#3} } }
+\html@def\TESCPE#1#2#3#4{ \RidxPE{#4}{  \!\OEsu{#1}{#2}{#3} } }
 %%%%%%%%%%%% Tipo II - Fil %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\html@def\TEPF#1#2#3{ \Lidx{#3}{ \OEpr{#1}{#2}\!} }
-\html@def\TEPFp#1#2#3{ \Lidxp{#3}{ \OEpr{#1}{#2}\!\!} }
-\html@def\TEPFP#1#2#3{ \LidxP{#3}{ \OEpr{#1}{#2}\!\!} }
-\html@def\TEPFpE#1#2#3{ \LidxpE{#3}{ \OEpr{#1}{#2}\!} }
-\html@def\TEPFPE#1#2#3{ \LidxPE{#3}{ \OEpr{#1}{#2}\!} }
+\html@def\TEPF  #1#2#3{ \Lidx  {#3}{ \OEpr{#1}{#2}\!  } }
+\html@def\TEPFp #1#2#3{ \Lidxp {#3}{ \OEpr{#1}{#2}\!\!} }
+\html@def\TEPFP #1#2#3{ \LidxP {#3}{ \OEpr{#1}{#2}\!\!} }
+\html@def\TEPFpE#1#2#3{ \LidxpE{#3}{ \OEpr{#1}{#2}\!  } }
+\html@def\TEPFPE#1#2#3{ \LidxPE{#3}{ \OEpr{#1}{#2}\!  } }
 %%%%%%%%%%%% Tipo II - Col %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\html@def\TEPC#1#2#3{ \Ridx{#3}{\!\OEpr{#1}{#2}  } }
-\html@def\TEPCp#1#2#3{ \Ridxp{#3}{\!\! \OEpr{#1}{#2}  } }
-\html@def\TEPCP#1#2#3{ \RidxP{#3}{\!\! \OEpr{#1}{#2}  } }
-\html@def\TEPCpE#1#2#3{ \RidxpE{#3}{\! \OEpr{#1}{#2}  } }
-\html@def\TEPCPE#1#2#3#4{ \RidxPE{#3}{\! \OEpr{#1}{#2}  } }
+\html@def\TEPC  #1#2#3{ \Ridx  {#3}{  \!\OEpr{#1}{#2} } }
+\html@def\TEPCp #1#2#3{ \Ridxp {#3}{\!\!\OEpr{#1}{#2} } }
+\html@def\TEPCP #1#2#3{ \RidxP {#3}{\!\!\OEpr{#1}{#2} } }
+\html@def\TEPCpE#1#2#3{ \RidxpE{#3}{  \!\OEpr{#1}{#2} } }
+\html@def\TEPCPE#1#2#3{ \RidxPE{#3}{  \!\OEpr{#1}{#2} } }
 %%%%%%%%%%%% Intercambio - Fil %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\html@def\TEIF#1#2#3{ \Lidx{#3}{ \OEin{#1}{#2}\!} }
-\html@def\TEIFp#1#2#3{ \Lidxp{#3}{ \OEin{#1}{#2}\!\!} }
-\html@def\TEIFP#1#2#3{ \LidxP{#3}{ \OEin{#1}{#2}\!\!} }
-\html@def\TEIFpE#1#2#3{ \LidxpE{#3}{ \OEin{#1}{#2}\!} }
-\html@def\TEIFPE#1#2#3{ \LidxPE{#3}{ \OEin{#1}{#2}\!} }
+\html@def\TEIF  #1#2#3{ \Lidx  {#3}{ \OEin{#1}{#2}\!  } }
+\html@def\TEIFp #1#2#3{ \Lidxp {#3}{ \OEin{#1}{#2}\!\!} }
+\html@def\TEIFP #1#2#3{ \LidxP {#3}{ \OEin{#1}{#2}\!\!} }
+\html@def\TEIFpE#1#2#3{ \LidxpE{#3}{ \OEin{#1}{#2}\!  } }
+\html@def\TEIFPE#1#2#3{ \LidxPE{#3}{ \OEin{#1}{#2}\!  } }
 %%%%%%%%%%%% Intercambio - Col %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\html@def\TEIC#1#2#3{ \Ridx{#3}{\!\OEin{#1}{#2}  } }
-\html@def\TEICp#1#2#3{ \Ridxp{#3}{\!\! \OEin{#1}{#2}  } }
-\html@def\TEICP#1#2#3{ \RidxP{#3}{\!\! \OEin{#1}{#2}  } }
-\html@def\TEICpE#1#2#3{ \RidxpE{#3}{\! \OEin{#1}{#2}  } }
-\html@def\TEICPE#1#2#3{ \RidxPE{#3}{ \OEin{#1}{#2} } }
+\html@def\TEIC  #1#2#3{ \Ridx  {#3}{  \!\OEin{#1}{#2}  } }
+\html@def\TEICp #1#2#3{ \Ridxp {#3}{\!\!\OEin{#1}{#2}  } }
+\html@def\TEICP #1#2#3{ \RidxP {#3}{\!\!\OEin{#1}{#2}  } }
+\html@def\TEICpE#1#2#3{ \RidxpE{#3}{  \!\OEin{#1}{#2}  } }
+\html@def\TEICPE#1#2#3{ \RidxPE{#3}{    \OEin{#1}{#2}  } }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \html@def\Mint#1#2{ \TEIC{#1}{#2}{\Mat{I}} }
 \html@def\MintT#1#2{ \TEIF{#1}{#2}{\Mat{I}} }
@@ -238,109 +241,101 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% --- Sucesiones indiciadas de Transf. elementales
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\html@def\SITEF#1#2#3{\Lidx{#3}{\dSOEg{#1}{#2}}}
-\html@def\SITEFp#1#2#3{\SITEF{#1}{#2}{\parentesis{#3}}}
-\html@def\SITEFP#1#2#3{\SITEF{#1}{#2}{\Parentesis{#3}}}
+\html@def\SITEF  #1#2#3{\Lidx{#3}{\dSOEg{#1}{#2}}}
+\html@def\SITEFp #1#2#3{\SITEF{#1}{#2}{\parentesis{#3}}}
+\html@def\SITEFP #1#2#3{\SITEF{#1}{#2}{\Parentesis{#3}}}
 \html@def\SITEFpE#1#2#3{\parentesis{\SITEF{#1}{#2}{#3}}}
 \html@def\SITEFPE#1#2#3{\Parentesis{\SITEF{#1}{#2}{#3}}}
-\html@def\SITEC#1#2#3{\Ridx{#3}{\dSOEg{#1}{#2}}}
-\html@def\SITECp#1#2#3{\SITEC{#1}{#2}{\parentesis{#3}}}
-\html@def\SITECP#1#2#3{\SITEC{#1}{#2}{\Parentesis{#3}}}
+\html@def\SITEC  #1#2#3{\Ridx{#3}{\dSOEg{#1}{#2}}}
+\html@def\SITECp #1#2#3{\SITEC{#1}{#2}{\parentesis{#3}}}
+\html@def\SITECP #1#2#3{\SITEC{#1}{#2}{\Parentesis{#3}}}
 \html@def\SITECpE#1#2#3{\parentesis{\SITEC{#1}{#2}{#3}}}
 \html@def\SITECPE#1#2#3{\Parentesis{\SITEC{#1}{#2}{#3}}}
-\html@def\SITEFC#1#2#3{\LRidx{#3}{\dSOEg{#2}{#1}}{\dSOEg{#1}{#2}}}
-\html@def\SITEFCR#1#2#3{\LRidx{#3}{\dSOEg{#1}{#2}}{\dSOEg{#1}{#2}}}
-\html@def\SITEFCp#1#2#3{\SITEFC{#1}{#2}{\parentesis{#3}}}
-\html@def\SITEFCP#1#2#3{\SITEFC{#1}{#2}{\Parentesis{#3}}}
+\html@def\SITEFC  #1#2#3{\LRidx{#3}{\dSOEg{#2}{#1}}{\dSOEg{#1}{#2}}}
+\html@def\SITEFCp #1#2#3{\SITEFC{#1}{#2}{\parentesis{#3}}}
+\html@def\SITEFCP #1#2#3{\SITEFC{#1}{#2}{\Parentesis{#3}}}
 \html@def\SITEFCpE#1#2#3{\parentesis{\SITEFC{#1}{#2}{#3}}}
-\html@def\SITECPE#1#2#3{\Parentesis{\SITEC{#1}{#2}{#3}}}
-\html@def\SITEFCRp#1#2#3{\SITEFCR{#1}{#2}{\parentesis{#3}}}
-\html@def\SITEFCRP#1#2#3{\SITEFCR{#1}{#2}{\Parentesis{#3}}}
+\html@def\SITEFCPE#1#2#3{\Parentesis{\SITEFC{#1}{#2}{#3}}}
+\html@def\SITEFCR  #1#2#3{\LRidx{#3}{\dSOEg{#1}{#2}}{\dSOEg{#1}{#2}}}
+\html@def\SITEFCRp #1#2#3{\SITEFCR{#1}{#2}{\parentesis{#3}}}
+\html@def\SITEFCRP #1#2#3{\SITEFCR{#1}{#2}{\Parentesis{#3}}}
 \html@def\SITEFCRpE#1#2#3{\parentesis{\SITEFCR{#1}{#2}{#3}}}
-\html@def\SITECRPE#1#2#3{\Parentesis{\SITECR{#1}{#2}{#3}}}
+\html@def\SITEFCRPE#1#2#3{\Parentesis{\SITEFCR{#1}{#2}{#3}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% --- Transformaciones elementales genéricas aplicadas a la izquierda de un objeto
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\html@def\dTEEF#1#2#3{ \Lidx{#3}{\dOEgE{#1}{#2}} }
-\html@def\dTEF#1#2{ \Lidx{#2}{{\dOEg{#1}}} }
-\html@def\dETEF#1#2{ \Lidx{#2}{{\dEOEg{#1}}} }
-\html@def\dInvTEF#1#2{ \Lidx{#2}{{\dInvOEg{#1}}} }
-\html@def\dEInvTEF#1#2{ \Lidx{#2}{{\dEInvOEg{#1}}} }
-%%%%%%%%%%%%%%%%%%
-\html@def\dTEEFp#1#2#3{ \Lidxp{#3}{\dOEgE{#1}{#2}} }
-\html@def\dTEFp#1#2{ \Lidxp{#2}{{\dOEg{#1}}} }
-\html@def\dETEFp#1#2{ \Lidxp{#2}{{\dEOEg{#1}}} }
-\html@def\dInvTEFp#1#2{ \Lidxp{#2}{{\dInvOEg{#1}}} }
-\html@def\dEInvTEFp#1#2{ \Lidxp{#2}{{\dEInvOEg{#1}}} }
-%%%%%%%%%%%%%%%%%%
-\html@def\dTEEFP#1#2#3{ \LidxP{#3}{\dOEgE{#1}{#2}} }
-\html@def\dTEFP#1#2{ \LidxP{#2}{{\dOEg{#1}}} }
-\html@def\dETEFP#1#2{ \LidxP{#2}{{\dEOEg{#1}}} }
-\html@def\dInvTEFP#1#2{ \LidxP{#2}{{\dInvOEg{#1}}} }
-\html@def\dEInvTEFP#1#2{ \LidxP{#2}{{\dEInvOEg{#1}}} }
-%%%%%%%%%%%%%%%%%%%%%%%%%%
+\html@def\dTEEF  #1#2#3{ \Lidx  {#3}{\dOEgE{#1}{#2}} }
+\html@def\dTEEFp #1#2#3{ \Lidxp {#3}{\dOEgE{#1}{#2}} }
+\html@def\dTEEFP #1#2#3{ \LidxP {#3}{\dOEgE{#1}{#2}} }
 \html@def\dTEEFpE#1#2#3{ \LidxpE{#3}{\dOEgE{#1}{#2}} }
+\html@def\dTEEFPE#1#2#3{ \LidxpE{#3}{\dOEgE{#1}{#2}} }
+\html@def\dTEF  #1#2{ \Lidx  {#2}{{\dOEg{#1}}} }
+\html@def\dTEFp #1#2{ \Lidxp {#2}{{\dOEg{#1}}} }
+\html@def\dTEFP #1#2{ \LidxP {#2}{{\dOEg{#1}}} }
 \html@def\dTEFpE#1#2{ \LidxpE{#2}{{\dOEg{#1}}} }
-\html@def\dETEFpE#1#2{ \LidxpE{#2}{{\dEOEg{#1}}} }
-\html@def\dInvTEFpE#1#2{ \LidxpE{#2}{{\dInvOEg{#1}}} }
-\html@def\dEInvTEFpE#1#2{ \LidxpE{#2}{{\dEInvOEg{#1}}} }
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-\html@def\dTEEFPE#1#2#3{ \LidxPE{#3}{\dOEgE{#1}{#2}} }
 \html@def\dTEFPE#1#2{ \LidxPE{#2}{{\dOEg{#1}}} }
+\html@def\dETEF  #1#2{ \Lidx  {#2}{{\dEOEg{#1}}} }
+\html@def\dETEFp #1#2{ \Lidxp {#2}{{\dEOEg{#1}}} }
+\html@def\dETEFP #1#2{ \LidxP {#2}{{\dEOEg{#1}}} }
+\html@def\dETEFpE#1#2{ \LidxpE{#2}{{\dEOEg{#1}}} }
 \html@def\dETEFPE#1#2{ \LidxPE{#2}{{\dEOEg{#1}}} }
+\html@def\dInvTEF  #1#2{ \Lidx  {#2}{{\dInvOEg{#1}}} }
+\html@def\dInvTEFp #1#2{ \Lidxp {#2}{{\dInvOEg{#1}}} }
+\html@def\dInvTEFP #1#2{ \LidxP {#2}{{\dInvOEg{#1}}} }
+\html@def\dInvTEFpE#1#2{ \LidxpE{#2}{{\dInvOEg{#1}}} }
 \html@def\dInvTEFPE#1#2{ \LidxPE{#2}{{\dInvOEg{#1}}} }
+\html@def\dEInvTEF  #1#2{ \Lidx  {#2}{{\dEInvOEg{#1}}} }
+\html@def\dEInvTEFp #1#2{ \Lidxp {#2}{{\dEInvOEg{#1}}} }
+\html@def\dEInvTEFP #1#2{ \LidxP {#2}{{\dEInvOEg{#1}}} }
+\html@def\dEInvTEFpE#1#2{ \LidxpE{#2}{{\dEInvOEg{#1}}} }
 \html@def\dEInvTEFPE#1#2{ \LidxPE{#2}{{\dEInvOEg{#1}}} }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% --- Transformaciones elementales genéricas aplicadas a la derecha de un objeto
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\html@def\dTEEC#1#2#3{ \Ridx{#3}{\dOEgE{#1}{#2}} }
-\html@def\dTEC#1#2{ \Ridx{#2}{{\dOEg{#1}}} }
-\html@def\dETEC#1#2{ \Ridx{#2}{{\dEOEg{#1}}} }
-\html@def\dInvTEC#1#2{ \Ridx{#2}{{\dInvOEg{#1}}} }
-\html@def\dEInvTEC#1#2{ \Ridx{#2}{{\dEInvOEg{#1}}} }
-%%%%%%%%%%%%%%%%%%
-\html@def\dTEECp#1#2#3{ \Ridxp{#3}{\dOEgE{#1}{#2}} }
-\html@def\dTECp#1#2{ \Ridxp{#2}{{\dOEg{#1}}} }
-\html@def\dETECp#1#2{ \Ridxp{#2}{{\dEOEg{#1}}} }
-\html@def\dInvTECp#1#2{ \Ridxp{#2}{{\dInvOEg{#1}}} }
-\html@def\dEInvTECp#1#2{ \Ridxp{#2}{{\dEInvOEg{#1}}} }
-%%%%%%%%%%%%%%%%%%
-\html@def\dTEECP#1#2#3{ \RidxP{#3}{\dOEgE{#1}{#2}} }
-\html@def\dTECP#1#2{ \RidxP{#2}{{\dOEg{#1}}} }
-\html@def\dETECP#1#2{ \RidxP{#2}{{\dEOEg{#1}}} }
-\html@def\dInvTECP#1#2{ \RidxP{#2}{{\dInvOEg{#1}}} }
-\html@def\dEInvTECP#1#2{ \RidxP{#2}{{\dEInvOEg{#1}}} }
-%%%%%%%%%%%%%%%%%%%%%%%%%%
+\html@def\dTEEC  #1#2#3{ \Ridx  {#3}{\dOEgE{#1}{#2}} }
+\html@def\dTEECp #1#2#3{ \Ridxp {#3}{\dOEgE{#1}{#2}} }
+\html@def\dTEECP #1#2#3{ \RidxP {#3}{\dOEgE{#1}{#2}} }
 \html@def\dTEECpE#1#2#3{ \RidxpE{#3}{\dOEgE{#1}{#2}} }
-\html@def\dTECpE#1#2{ \RidxpE{#2}{{\dOEg{#1}}} }
-\html@def\dETECpE#1#2{ \RidxpE{#2}{{\dEOEg{#1}}} }
-\html@def\dInvTECpE#1#2{ \RidxpE{#2}{{\dInvOEg{#1}}} }
-\html@def\dEInvTECpE#1#2{ \RidxpE{#2}{{\dEInvOEg{#1}}} }
-%%%%%%%%%%%%%%%%%%%%%%%%%%
 \html@def\dTEECPE#1#2#3{ \RidxPE{#3}{\dOEgE{#1}{#2}} }
+\html@def\dTEC  #1#2{ \Ridx  {#2}{{\dOEg{#1}}} }
+\html@def\dTECp #1#2{ \Ridxp {#2}{{\dOEg{#1}}} }
+\html@def\dTECP #1#2{ \RidxP {#2}{{\dOEg{#1}}} }
+\html@def\dTECpE#1#2{ \RidxpE{#2}{{\dOEg{#1}}} }
 \html@def\dTECPE#1#2{ \RidxPE{#2}{{\dOEg{#1}}} }
+\html@def\dETEC  #1#2{ \Ridx  {#2}{{\dEOEg{#1}}} }
+\html@def\dETECp #1#2{ \Ridxp {#2}{{\dEOEg{#1}}} }
+\html@def\dETECP #1#2{ \RidxP {#2}{{\dEOEg{#1}}} }
+\html@def\dETECpE#1#2{ \RidxpE{#2}{{\dEOEg{#1}}} }
 \html@def\dETECPE#1#2{ \RidxPE{#2}{{\dEOEg{#1}}} }
+\html@def\dInvTEC  #1#2{ \Ridx  {#2}{{\dInvOEg{#1}}} }
+\html@def\dInvTECp #1#2{ \Ridxp {#2}{{\dInvOEg{#1}}} }
+\html@def\dInvTECP #1#2{ \RidxP {#2}{{\dInvOEg{#1}}} }
+\html@def\dInvTECpE#1#2{ \RidxpE{#2}{{\dInvOEg{#1}}} }
 \html@def\dInvTECPE#1#2{ \RidxPE{#2}{{\dInvOEg{#1}}} }
+\html@def\dEInvTEC  #1#2{ \Ridx  {#2}{{\dEInvOEg{#1}}} }
+\html@def\dEInvTECp #1#2{ \Ridxp {#2}{{\dEInvOEg{#1}}} }
+\html@def\dEInvTECP #1#2{ \RidxP {#2}{{\dEInvOEg{#1}}} }
+\html@def\dEInvTECpE#1#2{ \RidxpE{#2}{{\dEInvOEg{#1}}} }
 \html@def\dEInvTECPE#1#2{ \RidxPE{#2}{{\dEInvOEg{#1}}} }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% --- Transformaciones elementales particulares
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\html@def\dTrF#1#2{\Lidx{#2}{#1}}
-\html@def\dTrFp#1#2{\dTrF{#1}{\parentesis{#2}}}
-\html@def\dTrFP#1#2{\dTrF{#1}{\Parentesis{#2}}}
+\html@def\dTrF  #1#2{\Lidx{#2}{#1}}
+\html@def\dTrFp #1#2{\dTrF{#1}{\parentesis{#2}}}
+\html@def\dTrFP #1#2{\dTrF{#1}{\Parentesis{#2}}}
 \html@def\dTrFpE#1#2{\parentesis{\dTrF{#1}{#2}}}
 \html@def\dTrFPE#1#2{\Parentesis{\dTrF{#1}{#2}}}
-\html@def\dTrC#1#2{\Ridx{#2}{#1}}
-\html@def\dTrCp#1#2{\dTrC{#1}{\parentesis{#2}}}
-\html@def\dTrCP#1#2{\dTrC{#1}{\Parentesis{#2}}}
+\html@def\dTrC  #1#2{\Ridx{#2}{#1}}
+\html@def\dTrCp #1#2{\dTrC{#1}{\parentesis{#2}}}
+\html@def\dTrCP #1#2{\dTrC{#1}{\Parentesis{#2}}}
 \html@def\dTrCpE#1#2{\parentesis{\dTrC{#1}{#2}}}
 \html@def\dTrCPE#1#2{\Parentesis{\dTrC{#1}{#2}}}
-\html@def\dTrFC#1#2#3{\LRidx{#3}{#2}{#1}}
-\html@def\dTrFCp#1#2#3{\LRidxp{#3}{#2}{#1}}
-\html@def\dTrFCP#1#2#3{\LRidxP{#3}{#2}{#1}}
+\html@def\dTrFC  #1#2#3{\LRidx  {#3}{#2}{#1}}
+\html@def\dTrFCp #1#2#3{\LRidxp {#3}{#2}{#1}}
+\html@def\dTrFCP #1#2#3{\LRidxP {#3}{#2}{#1}}
 \html@def\dTrFCpE#1#2#3{\LRidxpE{#3}{#2}{#1}}
 \html@def\dTrFCPE#1#2#3{\LRidxPE{#3}{#2}{#1}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -352,6 +347,17 @@
 \html@def\quitaL#1#2{{^{\fueraitemL{#2}\!}}{{#1}}{^{}}}
 \html@def\quitaR#1#2{{^{}}{{#1}}{^{\!\fueraitemR{#2}}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% --- Selección de elementos sin emplear el operador selector
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\html@def\elemUUU#1#2{\textrm{elem}_{#2}\Parentesis{#1}}
+\html@def\VectCCC #1#2{\textrm{col}_{#2}\MatP  {#1}}
+\html@def\VectCCCT#1#2{\textrm{col}_{#2}\MatTPE{#1}}
+\html@def\VectFFF #1#2{\textrm{fila}_{#2}\MatP  {#1}}
+\html@def\VectFFFT#1#2{\textrm{fila}_{#2}\MatTPE{#1}}
+\html@def\eleMMM #1#2#3#{\textrm{elem}_{#2#3}{\MatP  {#1}} }
+\html@def\eleMMMT#1#2#3#{\textrm{elem}_{#2#3}{\MatTPE{#1}} }
+\html@def\eleMM  #1#2#3#{\MakeLowercase{#1}_{{#2}{#3}}     }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% --- Sistemas genéricos
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -360,26 +366,25 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% --- Notación matricial
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\html@def\vect#1{\vec{#1}}
+\html@def\vect #1{\vec{#1}}
 \html@def\vectp#1{\parentesis{\vect{#1}}}
 \html@def\vectP#1{\Parentesis{\vect{#1}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\html@def\Vect#1{\boldsymbol{#1}}
+\html@def\Vect #1{\boldsymbol{#1}}
 \html@def\Vectp#1{\parentesis{\Vect{#1}}}
 \html@def\VectP#1{\Parentesis{\Vect{#1}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\html@def\Mat#1{\boldsymbol{\mathsf{#1}}}
+\html@def\Mat #1{\boldsymbol{\mathsf{#1}}}
 \html@def\Matp#1{\parentesis{\Mat{#1}}}
 \html@def\MatP#1{\Parentesis{\Mat{#1}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\html@def\MatT#1{\Trans{\Mat{#1}}}
-\html@def\MatTp#1{\Transp{\Mat{#1}}}
-\html@def\MatTP#1{\TransP{\Mat{#1}}}
-
+\html@def\MatT  #1{\Trans  {\Mat{#1}}}
+\html@def\MatTp #1{\Transp {\Mat{#1}}}
+\html@def\MatTP #1{\TransP {\Mat{#1}}}
 \html@def\MatTpE#1{\TranspE{\Mat{#1}}}
 \html@def\MatTPE#1{\TransPE{\Mat{#1}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\html@def\MatTT#1{\TransP{\MatT{#1}}}
+\html@def\MatTT  #1{\TransP{\MatT{#1}}}
 \html@def\MatTTPE#1{\Parentesis{\MatTT{#1}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \html@def\MVectC#1#2{\left[\VectC{#1}{#2}\right]}
@@ -402,78 +407,79 @@
 \html@def\Menor#1#2#3{\det\big({\subMat{#1}{#2}{#3}}\big)}
 \html@def\MenoR#1#2#3{\big|{\subMat{#1}{#2}{#3}}\big|}
 \html@def\Cof#1#2#3{{\cof}_{{#2}{#3}}\parentesis{\Mat{#1}}}
-\html@def\Dim#1#2#3{\mathop{#1}\limits_{\scriptscriptstyle #2\times#3}}
-\html@def\Dimp#1#2#3{\Dim{\parentesis{#1}}{#2}{#3}}
-\html@def\DimP#1#2#3{\Dim{\Parentesis{#1}}{#2}{#3}}
+\html@def\Dim  #1#2#3{\mathop{#1}\limits_{\scriptscriptstyle #2\times#3}}
+\html@def\Dimp #1#2#3{\Dim{\parentesis{#1}}{#2}{#3}}
+\html@def\DimP #1#2#3{\Dim{\Parentesis{#1}}{#2}{#3}}
 \html@def\DimpE#1#2#3{\parentesis{\Dim{#1}}{#2}{#3}}
 \html@def\DimPE#1#2#3{\Parentesis{\Dim{#1}}{#2}{#3}}
-\html@def\Matdim#1#2#3{\Dim{\Mat{#1}}{#2}{#3}}
-\html@def\Matdimp#1#2#3{\Dimp{\Mat{#1}}{#2}{#3}}
-\html@def\MatdimP#1#2#3{\DimP{\Mat{#1}}{#2}{#3}}
+\html@def\Matdim  #1#2#3{\Dim  {\Mat{#1}}{#2}{#3}}
+\html@def\Matdimp #1#2#3{\Dimp {\Mat{#1}}{#2}{#3}}
+\html@def\MatdimP #1#2#3{\DimP {\Mat{#1}}{#2}{#3}}
 \html@def\MatdimpE#1#2#3{\DimpE{\Mat{#1}}{#2}{#3}}
 \html@def\MatdimPE#1#2#3{\DimPE{\Mat{#1}}{#2}{#3}}
+\html@def\MDaV{D}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% --- Productos entre vectores
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \html@def\eSc#1#2{\left<{#1},{#2}\right>}
 \html@def\esc#1#2{\left<{\vect{#1}},{\vect{#2}}\right>}
-\html@def\dotProd#1#2{{#1}\cdot{#2}}
+\html@def\dotProd #1#2{{#1}\cdot{#2}}
 \html@def\dotProdp#1#2{\parentesis{\dotProd{#1}{#2}}}
 \html@def\dotProdP#1#2{\Parentesis{\dotProd{#1}{#2}}}
-\html@def\dotprod#1#2{\Vect{#1}\cdot\Vect{#2}}
+\html@def\dotprod #1#2{\Vect{#1}\cdot\Vect{#2}}
 \html@def\dotprodp#1#2{\parentesis{\dotprod{#1}{#2}}}
 \html@def\dotprodP#1#2{\Parentesis{\dotprod{#1}{#2}}}
 \html@def\prodH#1#2{{#1}\odot{#2}}
 \html@def\prodHp#1#2{\parentesis{\prodH{#1}{#2}}}
 \html@def\prodHP#1#2{\Parentesis{\prodH{#1}{#2}}}
-\html@def\prodh#1#2{\Vect{#1}\odot\Vect{#2}}
+\html@def\prodh #1#2{\Vect{#1}\odot\Vect{#2}}
 \html@def\prodhp#1#2{\parentesis{\prodh{#1}{#2}}}
 \html@def\prodhP#1#2{\Parentesis{\prodh{#1}{#2}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% --- Matriz por vector y vector por matriz
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\html@def\MV#1#2{\Mat{#1}\Vect{#2}}
+\html@def\MV  #1#2{\Mat{#1}\Vect{#2}}
 \html@def\MVpE#1#2{\parentesis{\Mat{#1}\Vect{#2}}}
 \html@def\MVPE#1#2{\Parentesis{\Mat{#1}\Vect{#2}}}
-\html@def\VM#1#2{\Vect{#1}\Mat{#2}}
+\html@def\VM  #1#2{\Vect{#1}\Mat{#2}}
 \html@def\VMpE#1#2{\parentesis{\Vect{#1}\Mat{#2}}}
 \html@def\VMPE#1#2{\Parentesis{\Vect{#1}\Mat{#2}}}
-\html@def\MTV#1#2{\MatT{#1}\Vect{#2}}
+\html@def\MTV #1#2{\MatT  {#1}\Vect{#2}}
 \html@def\MTVp#1#2{\MatTpE{#1}\Vect{#2}}
 \html@def\MTVP#1#2{\MatTPE{#1}\Vect{#2}}
-\html@def\VMT#1#2{\Vect{#1}\MatT{#2}}
+\html@def\VMT #1#2{\Vect{#1}\MatT  {#2}}
 \html@def\VMTp#1#2{\Vect{#1}\MatTpE{#2}}
 \html@def\VMTP#1#2{\Vect{#1}\MatTPE{#2}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% --- Matriz por matriz
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \html@def\MN#1#2{\Mat{#1}\Mat{#2}}
-\html@def\MTN#1#2{\MatT{#1}\Mat{#2}}
+\html@def\MTN #1#2{\MatT  {#1}\Mat{#2}}
 \html@def\MTNp#1#2{\MatTpE{#1}\Mat{#2}}
 \html@def\MTNP#1#2{\MatTPE{#1}\Mat{#2}}
-\html@def\MNT#1#2{\Mat{#1}\MatT{#2}}
+\html@def\MNT #1#2{\Mat{#1}\MatT  {#2}}
 \html@def\MNTp#1#2{\Mat{#1}\MatTpE{#2}}
 \html@def\MNTP#1#2{\Mat{#1}\MatTPE{#2}}
-\html@def\MTM#1{\MatT{#1}\Mat{#1}}
+\html@def\MTM #1{\MatT  {#1}\Mat{#1}}
 \html@def\MTMp#1{\MatTpE{#1}\Mat{#1}}
 \html@def\MTMP#1{\MatTPE{#1}\Mat{#1}}
-\html@def\MMT#1{\Mat{#1}\MatT{#1}}
+\html@def\MMT #1{\Mat{#1}\MatT  {#1}}
 \html@def\MMTp#1{\Mat{#1}\MatTpE{#1}}
 \html@def\MMTP#1{\Mat{#1}\MatTPE{#1}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\html@def\MNMT#1#2{\MN{#1}{#2}\MatT{#1}}
+\html@def\MNMT #1#2{\MN{#1}{#2}\MatT {#1}}
 \html@def\MNMTp#1#2{\MN{#1}{#2}\MatTp{#1}}
 \html@def\MNMTP#1#2{\MN{#1}{#2}\MatTP{#1}}
-\html@def\MTNM#1#2{\MatT{#1}\MN{#2}{#1}}
+\html@def\MTNM #1#2{\MatT {#1}\MN{#2}{#1}}
 \html@def\MTNMp#1#2{\MatTp{#1}\MN{#2}{#1}}
 \html@def\MTNMP#1#2{\MatTP{#1}\MN{#2}{#1}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% --- Matriz inversa
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\html@def\InvMat#1{\Inv{\Mat{#1}}}
-\html@def\InvMatp#1{\Invp{\Mat{#1}}}
-\html@def\InvMatP#1{\InvP{\Mat{#1}}}
+\html@def\InvMat  #1{\Inv  {\Mat{#1}}}
+\html@def\InvMatp #1{\Invp {\Mat{#1}}}
+\html@def\InvMatP #1{\InvP {\Mat{#1}}}
 \html@def\InvMatpE#1{\InvpE{\Mat{#1}}}
 \html@def\InvMatPE#1{\InvPE{\Mat{#1}}}
 \html@def\InvMatT#1{\InvP{\MatT{#1}}}
@@ -485,15 +491,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% --- Otros productos entre matrices y vectores
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\html@def\MTMV#1#2{\MTM{#1}\Vect{#2}}
+\html@def\MTMV #1#2{\MTM {#1}\Vect{#2}}
 \html@def\MTMVp#1#2{\MTMp{#1}\Vect{#2}}
 \html@def\MTMVP#1#2{\MTMP{#1}\Vect{#2}}
 \html@def\VMW#1#2#3{\VMM{#1}{#2}\Vect{#3}}
 \html@def\VMV#1#2{\VMW{#1}{#2}{#1}}
-\html@def\VMTW#1#2#3{\VMT{#1}{#2}\Vect{#3}}
+\html@def\VMTW #1#2#3{\VMT {#1}{#2}\Vect{#3}}
 \html@def\VMTWp#1#2#3{\VMTp{#1}{#2}\Vect{#3}}
 \html@def\VMTWP#1#2#3{\VMTP{#1}{#2}\Vect{#3}}
-\html@def\VMTV#1#2{\VMTW{#1}{#2}{#1}}
+\html@def\VMTV #1#2{\VMTW {#1}{#2}{#1}}
 \html@def\VMTVp#1#2{\VMTWp{#1}{#2}{#1}}
 \html@def\VMTVP#1#2{\VMTWP{#1}{#2}{#1}}
 \html@def\InvMTM#1{\InvP{\MTM{#1}}}
@@ -501,7 +507,7 @@
 %% --- Sistemas de ecuaciones
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \html@def\SEL#1#2#3{\MV{#1}{#2}=\Vect{#3}}
-\html@def\SELT#1#2#3{\MTV{#1}{#2}=\Vect{#3}}
+\html@def\SELT#1#2#3{\MTV {#1}{#2}=\Vect{#3}}
 \html@def\SELT#1#2#3{\MTVP{#1}{#2}=\Vect{#3}}
 \html@def\SELF#1#2#3{\VM{#1}{#2}=\Vect{#3}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -516,8 +522,8 @@
 \html@def\cols#1{\Cols{\Mat{#1}}}
 \html@def\Span#1{\EV{L}\Parentesis{#1}}
 \html@def\PSpan#1{\EV{L{\!\!{\scriptscriptstyle{{}^P}}}}\Parentesis{#1}}
-\html@def\coord#1#2{\Ridx{#1}{\Ridx{\mathbin{/}}{#2}}}
-\html@def\coordP#1#2{\coord{\Parentesis{#2}}{#1}}
+\html@def\coord  #1#2{\Ridx{#1}{\Ridx{\mathbin{/}}{#2}}}
+\html@def\coordP #1#2{\coord{\Parentesis{#2}}{#1}}
 \html@def\coordPE#1#2{\Parentesis{\coord{#2}{#1}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% --- Notación funcional
@@ -529,6 +535,14 @@
         #1\colon & #2 & \longrightarrow & #3\cr
             & #4 & \longmapsto & \displaystyle#5
     \end{array}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% --- Estadística
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\html@def\Estmc#1{ \widehat{#1} }
+\html@def\Media#1{ \widebar{#1} }
+\html@def\Smedia{\mu}
+\html@def\media#1{ {\Smedia}_{#1} }
 \endinput
 %%
 %% End of file `nacal-moodle.sty'.

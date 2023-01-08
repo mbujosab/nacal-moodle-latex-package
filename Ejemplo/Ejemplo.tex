@@ -1,0 +1,68 @@
+\documentclass[10pt]{article}
+
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage[spanish]{babel}
+
+\usepackage{nacal-moodle}
+
+\begin{document}
+
+% El fichero \texttt{Ejemplo.tex} debe ser compilado con
+% \texttt{lualatex} para obtener una version en \texttt{pdf} (este
+% fichero) y el fichero \texttt{xml} que se debe importar al banco de
+% preguntas de Moodle.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\begin{quiz}{Prueba01}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  \begin{multi}{PreguntaSinSentido}
+    Dado $\SV{W}$, dado
+    $\Ridx{\Vect{z}}{n}\concat{}\Lidx{\parentesis{\Vect{a}}}{n}$, dado
+    $\InvPE{\Corchetes{\conj{\norma{A}}}}$ y
+    $\concatSV{\SV{A}}{\vect{b}}$ resulta que $\media{\Vect{x}}^2$ y que
+    \[
+      \Mat{A}=
+      \begin{bmatrix}
+        1&3\\
+        5&7
+      \end{bmatrix}.
+    \]
+    Si $\deffun{[f \circ g ]}{\Rr}{\Rr^{n}}{x}{\Vect{x}}$, el
+    determinante de $\dTrCPE{\dOEgE{1}{'}\cdots\dOEgE{p}{'}}{\Mat{I}}$
+    multiplicado por $\VectCCCT{A}{i}$ es:
+    \item $\InvMTM{\Estmc{X}}$
+    \item $\InvMatTpE{A}$
+    \item $\PSpan{\SV{Z}}$
+    \item $\coord{\vect{x}}{\SV{Z}}$
+    \item $\Cof{\Mat{A}}{i}{j}$
+    \item $\MenoR{\Mat{A}}{i}{j}$
+    \item $\TESF{\lambda}{i}{j}{\Mat{A}}$
+    \item * $\dTrC{\dSOEgE{1}{4}{*}}{\Mat{A}}$
+    \item * $\SITEFCpE{j}{k}{\Mat{A}}$
+    \item $\eleMTpE{A}{i}{j}$
+    \item $\MVectFT{A}{i}$
+    \item $\EOEsu{a}{j}{k}$
+    \item $\eSc{f(x)}{g(x)}$
+    \item $\prodH{(\Vect{a}+\Vect{b})}{\Vect{c}}$
+    \item $\MTVp{A}{b}$
+    %\item $\MNTp{A}{B}$
+    %\item $\MTMV{A}{b}$
+    \item $\dEInvTEC{2}{\Mat{A}}$
+    \item $\dInvOEg{k}$
+    \item $\dInvTEF{2}{\Mat{A}}$
+    \item $\dSOEg{1}{3}$
+    \item $\OpE{\su{a}{j}{k}}$
+    \item $\SITEFp{j}{k}{\Mat{A}+\Mat{B}}$
+    \item $\SITECPE{j}{k}{\SV{B}}$
+    \item $\dTrF{\OpE{\su{5}{i}{j}}\OpE{\pr{-7}{j}}}{\Mat{A}}$
+    \item $\dTrFC{\OpE{\su{-5}{i}{j}}}{\OpE{\pr{-7}{j}}}{\Mat{I}}$
+    \item $\PC{\Mat{A}}$
+    \item $\TEICPE{i}{j}{\Mat{A}}$
+    \end{multi}
+    
+  \end{quiz}
+  
+\end{document}

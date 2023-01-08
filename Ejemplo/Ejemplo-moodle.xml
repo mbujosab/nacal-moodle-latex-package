@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file was generated on 2023-01-08 by LuaLaTeX -->
+<!-- running on *NIX with the package moodle v0.8 -->
+
+<quiz>
+ 
+<question type="category">
+  <category>
+    <text>$course$/top/Prueba01</text>
+  </category>
+</question>
+ 
+<question type="multichoice">
+  <name format="html">
+    <text><![CDATA[PreguntaSinSentido]]></text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p>Dado \(\mathsf {W}\), dado \(  { }{{\boldsymbol {z}}}{_{n}^{}} \large &#x29FA;{}  {_{n}^{}}{{(\boldsymbol {a})}}{_{ }^{}} \), dado \(\left ({\left [\mathop {\overline {\left \lVert {A}\right \rVert }}\right ]}^{\hbox {-}1}\right )\) y \({\mathsf {A}}\mathbin {\large &#x29FA;}{\vec {b}}\) resulta que \( {\mu }_{\boldsymbol {x}} ^2\) y que \[ \boldsymbol {\mathsf {A}}= \begin {bmatrix} 1&3\\ 5&7 \end {bmatrix}. \] Si \(\begin {array}{r@{&#8239;}ccl} [f \circ g ]\colon & \mathbb {R}& \longrightarrow & \mathbb {R}^{n}\cr & x & \longmapsto & \displaystyle \boldsymbol {x} \end {array}\), el determinante de \(\left (  { }{{\boldsymbol {\mathsf {I}}}}{_{ { }{{\boldsymbol {\tau }}}{_{1}^{&rsquo;}} \cdots  { }{{\boldsymbol {\tau }}}{_{p}^{&rsquo;}} }^{}} \right )\) multiplicado por \(\textrm {col}_{i}\left (\boldsymbol {\mathsf {A}}^{\mathbin {\intercal }}\right )\) es: </p>]]></text>
+  </questiontext>
+  <defaultgrade>1.0</defaultgrade>
+  <generalfeedback format="html"><text/></generalfeedback>
+  <penalty>0.10</penalty>
+  <hidden>0</hidden>
+  <single>true</single>
+  <shuffleanswers>1</shuffleanswers>
+  <answernumbering>abc</answernumbering>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\({\left (\boldsymbol {\mathsf { \widehat {X} }}^{\mathbin {\intercal }}\boldsymbol {\mathsf { \widehat {X} }}\right )}^{\hbox {-}1}\)</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\(({\left (\boldsymbol {\mathsf {A}}^{\mathbin {\intercal }}\right )}^{\hbox {-}1})\)</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\(\mathcal {L{\!\!{\scriptscriptstyle {{}^P}}}}\left (\mathsf {Z}\right )\)</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\(  { }{{\vec {x}}}{_{  { }{{\mathbin {/}}}{_{\mathsf {Z}}^{}} }^{}} \)</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\({\mathop {\mathrm {cof}}}_{{i}{j}}(\boldsymbol {\mathsf {\boldsymbol {\mathsf {A}}}})\)</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\(\big |{{^{{_{}}{i}{^{\Lsh }}\!}}{{\boldsymbol {\mathsf {\boldsymbol {\mathsf {A}}}}}}{^{{^{\Rsh \!}}{j}{_{}}}}}\big |\)</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\(   {_{ \underset {\left [{ \left (\lambda \right ){\boldsymbol {i}}+{\boldsymbol {j}} }\right ]}{\boldsymbol {\tau }}\! }^{}}{{\boldsymbol {\mathsf {A}}}}{_{ }^{}} \)</p>]]></text>
+  </answer>
+  <answer fraction="100" format="html">
+    <text><![CDATA[<p>\(  { }{{\boldsymbol {\mathsf {A}}}}{_{ { }{{\boldsymbol {\tau }}}{_{1}^{*}} \cdots  { }{{\boldsymbol {\tau }}}{_{4}^{*}} }^{}} \)</p>]]></text>
+  </answer>
+  <answer fraction="100" format="html">
+    <text><![CDATA[<p>\((  {_{ { }{{\boldsymbol {\tau }}}{_{k}^{}} \cdots  { }{{\boldsymbol {\tau }}}{_{j}^{}} }^{}}{{\boldsymbol {\mathsf {A}}}}{_{ { }{{\boldsymbol {\tau }}}{_{j}^{}} \cdots  { }{{\boldsymbol {\tau }}}{_{k}^{}} }^{}} )\)</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\((  {_{{i}\mathbin {\mathbf {|}}}^{}}{{(\boldsymbol {\mathsf {A}}^{\mathbin {\intercal }})}}{_{\mathbin {\mathbf {|}}{j}}^{}} )\)</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\(\left [  {_{{i}\mathbin {\mathbf {|}}}^{}}{{\boldsymbol {\mathsf {A}}}}{_{ }^{}} \right ]^{\mathbin {\intercal }}\)</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\(esp\Big (\underset {\left [{ \left (a\right ){\boldsymbol {j}}+{\boldsymbol {k}} }\right ]}{\boldsymbol {\tau }}\Big )\)</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\(\left &lt;{f(x)},{g(x)}\right &gt;\)</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\({(\boldsymbol {a}+\boldsymbol {b})}\odot {\boldsymbol {c}}\)</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\((\boldsymbol {\mathsf {A}}^{\mathbin {\intercal }})\boldsymbol {b}\)</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\(   { }{{\boldsymbol {\mathsf {A}}}}{_{{esp( { }{{\boldsymbol {\tau }}}{_{2}^{\hbox {-}1}} )}}^{}} \)</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\( { }{{\boldsymbol {\tau }}}{_{k}^{\hbox {-}1}} \)</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\(   {_{{ { }{{\boldsymbol {\tau }}}{_{2}^{\hbox {-}1}} }}^{}}{{\boldsymbol {\mathsf {A}}}}{_{ }^{}} \)</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\( { }{{\boldsymbol {\tau }}}{_{1}^{}} \cdots  { }{{\boldsymbol {\tau }}}{_{3}^{}} \)</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\(\underset {\left [{\left (a\right ){\boldsymbol {j}}+{\boldsymbol {k}}}\right ]}{\boldsymbol {\tau }}\)</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\(  {_{ { }{{\boldsymbol {\tau }}}{_{j}^{}} \cdots  { }{{\boldsymbol {\tau }}}{_{k}^{}} }^{}}{{(\boldsymbol {\mathsf {A}}+\boldsymbol {\mathsf {B}})}}{_{ }^{}} \)</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\(\left (  { }{{\mathsf {B}}}{_{ { }{{\boldsymbol {\tau }}}{_{j}^{}} \cdots  { }{{\boldsymbol {\tau }}}{_{k}^{}} }^{}} \right )\)</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\(  {_{\underset {\left [{\left (5\right ){\boldsymbol {i}}+{\boldsymbol {j}}}\right ]}{\boldsymbol {\tau }}\underset {\left [{\left (-7\right ){\boldsymbol {j}}}\right ]}{\boldsymbol {\tau }}}^{}}{{\boldsymbol {\mathsf {A}}}}{_{ }^{}} \)</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\(  {_{\underset {\left [{\left (-7\right ){\boldsymbol {j}}}\right ]}{\boldsymbol {\tau }}}^{}}{{\boldsymbol {\mathsf {I}}}}{_{\underset {\left [{\left (-5\right ){\boldsymbol {i}}+{\boldsymbol {j}}}\right ]}{\boldsymbol {\tau }}}^{}} \)</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\(   {_{\!\underset {\left [{ \mathfrak {S}}\right ]}{\boldsymbol {\tau }}}^{}}{{\boldsymbol {\mathsf {A}}}}{_{ }^{}} \)</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\(  \left (  { }{{\boldsymbol {\mathsf {A}}}}{_{ \underset {\left [{ \boldsymbol {i} \rightleftharpoons \boldsymbol {j} }\right ]}{\boldsymbol {\tau }} }^{}} {}\right ) \)</p>]]></text>
+  </answer>
+</question>
+ 
+</quiz>
