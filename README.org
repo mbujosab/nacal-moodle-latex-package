@@ -1,34 +1,35 @@
 ** Paquete ~nacal-moodle~ para usar la notación del curso de Álgebra Lineal (y Econometría) en documentos bancos de preguntas de Moodle.
 
-~nacal-moodle~ es un paquete de $\LaTeX{}$ con algunas de las macros
-de [[https://github.com/mbujosab/nacal-latex-package][nacal.sty]] que diseñé al escribir el [[https://github.com/mbujosab/CursoDeAlgebraLineal/blob/master/libro.pdf][libro]] para el curso de Álgebra
-Lineal del [[https://www.ucm.es/estudios/grado-economia][Grado en Economía]] de la [[https://www.ucm.es/][UCM]], en este caso con el objeto de
-generar preguntas de opción múltiple para  [[https://moodle.com/solutions/lms/][Moodle]].
+~nacal-moodle~ es un paquete de $\LaTeX{}$ que redefine algunas de las
+macros del paquete [[https://github.com/mbujosab/nacal-latex-package][nacal.sty]] para emplear la notación del [[https://github.com/mbujosab/CursoDeAlgebraLineal/blob/master/libro.pdf][libro]] para
+el curso de Álgebra Lineal del [[https://www.ucm.es/estudios/grado-economia][Grado en Economía]] de la [[https://www.ucm.es/][UCM]]. Dicha
+redefinición tiene por objeto poder escribir preguntas de opción
+múltiple para [[https://moodle.com/solutions/lms/][Moodle]] que usen la misma notación que el resto del
+material del curso.
 
-Cualquier error o sugerencia correspondiente al paquete [[https://github.com/mbujosab/nacal-moodle-latex-package][nacal-moodle.sty]] debe
-ser enviada a:
+Cualquier error o sugerencia correspondiente al paquete
+[[https://github.com/mbujosab/nacal-moodle-latex-package][nacal-moodle.sty]] debe ser enviada a:
 
 Marcos Bujosa (mbujosab@ucm.es) o indicada como un [[https://github.com/mbujosab/CursoDeAlgebraLineal/issues][issue]].
 
-El libro de Álgebra Lineal se puede descargar desde
-[[https://github.com/mbujosab/CursoDeAlgebraLineal]].
-
 *** Advertencia
-Cuando programé las macros para escribir el [[https://github.com/mbujosab/CursoDeAlgebraLineal/blob/master/libro.pdf][libro]], muchas de ellas las
-programé con argumentos opcionales y con una segunda versión con
-estrella que modificaba ligeramente el comportamiento de algunas de
-ellas. Para programar este paquete he usado la función ~\html@def~ que
-ofrece el paquete [[https://ctan.org/pkg/moodle][moodle.sty]] de Anders Hendrickson y Matthieu
-Guerquin-Kern; pero esta función no permite traducir a ~html~ macros
-con estrella o con argumentos opcionales. Por tanto, ~nacal-moodle~
-tiene menos macros que el paquete ~nacal~, Además, para no perder
-ciertas funcionalidades (véase la documentación de ambos paquetes).
+Al programar las macros para el [[https://github.com/mbujosab/CursoDeAlgebraLineal/blob/master/libro.pdf][libro]], diseñé macros que usan
+argumentos opcionales y/o que disponen de segundas versiones con
+estrella (que modifican ligeramente el comportamiento). Para lograr
+obtener los ficheros ~xml~ (que la plataforma Moodle necesita
+importar) es necesario usar la función ~\html@def~ del paquete
+[[https://ctan.org/pkg/moodle][moodle.sty]] de Anders Hendrickson y Matthieu Guerquin-Kern. Esta
+función no permite traducir a ~html~ macros con estrella o con
+argumentos opcionales. Por tanto, ~nacal-moodle~ posee menos macros
+que el paquete ~nacal~. Además, para no perder ciertas
+funcionalidades, he tenido que duplicar algunas funciones (véase la
+documentación de ambos paquetes).
 
 *** Paquetes  de \LaTeX{} requeridos
-Tenga en cuenta que [[https://github.com/mbujosab/nacal-moodle-latex-package][nacal-moodle.sty]] por defecto carga [[https://github.com/mbujosab/nacal-latex-package][nacal.sty]] que a
-su vez carga otros paquetes.
+Tenga en cuenta que [[https://github.com/mbujosab/nacal-moodle-latex-package][nacal-moodle.sty]] por defecto carga [[https://ctan.org/pkg/moodle][moodle.sty]] así
+como [[https://github.com/mbujosab/nacal-latex-package][nacal.sty]] (que a su vez carga otros paquetes).
 
-**** Licencia del paquete nacal.sty
+**** Licencia del paquete nacal-moodle.sty
 
 Este archivo puede ser distribuido y/o modificado bajo las condiciones
 de la Licencia Pública del Proyecto LaTeX, ya sea la versión 1.3 de
