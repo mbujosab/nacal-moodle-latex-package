@@ -1,0 +1,17 @@
+## Core latex/pdflatex auxiliary files:
+*.aux
+*.glo
+*.gls
+*.idx
+*.ilg
+*.ind
+*.log
+*.out
+*.toc
+*.~undo-tree~
+*.~
+
+## otros
+makefile
+NAcAL-MoodleTex.*
+texput.log
