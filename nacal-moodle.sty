@@ -24,7 +24,12 @@
 \ProvidesPackage{nacal-moodle}
     [2023/01/08 v1.0 Notación Asociativa para un Curso de Álgebra en Moodle]
 \RequirePackage{moodle}
-\RequirePackage{nacal}
+\RequirePackageWithOptions{nacal}
+\DeclareOption{esp}{\html@def\eng#1#2{#1}}
+\DeclareOption{eng}{\html@def\eng#1#2{#2}}
+\DeclareOption*{\PackageWarning{nacal-moodle}{Unknown ‘\CurrentOption’}}
+\ExecuteOptions{esp}
+\ProcessOptions\relax
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% --- Conjuntos de números
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -352,8 +357,8 @@
 \html@def\elemUUU#1#2{\textrm{elem}_{#2}\Parentesis{#1}}
 \html@def\VectCCC #1#2{\textrm{col}_{#2}\MatP  {#1}}
 \html@def\VectCCCT#1#2{\textrm{col}_{#2}\MatTPE{#1}}
-\html@def\VectFFF #1#2{\textrm{fila}_{#2}\MatP  {#1}}
-\html@def\VectFFFT#1#2{\textrm{fila}_{#2}\MatTPE{#1}}
+\html@def\VectFFF #1#2{\textrm{\eng{fila}{row}}_{#2}\MatP  {#1}}
+\html@def\VectFFFT#1#2{\textrm{\eng{fila}{row}}_{#2}\MatTPE{#1}}
 \html@def\eleMMM #1#2#3#{\textrm{elem}_{#2#3}{\MatP  {#1}} }
 \html@def\eleMMMT#1#2#3#{\textrm{elem}_{#2#3}{\MatTPE{#1}} }
 \html@def\eleMM  #1#2#3#{\MakeLowercase{#1}_{{#2}{#3}}     }

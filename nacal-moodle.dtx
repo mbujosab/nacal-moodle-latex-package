@@ -20,7 +20,12 @@
 %<package>\ProvidesPackage{nacal-moodle}
 %<package>    [2023/01/08 v1.0 Notación Asociativa para un Curso de Álgebra en Moodle]
 %<package>\RequirePackage{moodle}
-%<package>\RequirePackage{nacal}
+%<package>\RequirePackageWithOptions{nacal}
+%<package>\DeclareOption{esp}{\html@def\eng#1#2{#1}}
+%<package>\DeclareOption{eng}{\html@def\eng#1#2{#2}}
+%<package>\DeclareOption*{\PackageWarning{nacal-moodle}{Unknown ‘\CurrentOption’}}
+%<package>\ExecuteOptions{esp}
+%<package>\ProcessOptions\relax
 % 
 %<*driver>
 \documentclass{ltxdoc}
@@ -4216,8 +4221,8 @@
 % \begin{macro}{\VectFFFT}
 % Selección de una columna de una matriz
 %    \begin{macrocode}
-\html@def\VectFFF #1#2{\textrm{fila}_{#2}\MatP  {#1}}
-\html@def\VectFFFT#1#2{\textrm{fila}_{#2}\MatTPE{#1}}
+\html@def\VectFFF #1#2{\textrm{\eng{fila}{row}}_{#2}\MatP  {#1}}
+\html@def\VectFFFT#1#2{\textrm{\eng{fila}{row}}_{#2}\MatTPE{#1}}
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- This file was generated on 2023-01-08 by LuaLaTeX -->
+<!-- This file was generated on 2023-01-26 by LuaLaTeX -->
 <!-- running on *NIX with the package moodle v0.8 -->
 
 <quiz>
@@ -15,7 +15,7 @@
     <text><![CDATA[PreguntaSinSentido]]></text>
   </name>
   <questiontext format="html">
-    <text><![CDATA[<p>Dado \(\mathsf {W}\), dado \(  { }{{\boldsymbol {z}}}{_{n}^{}} \large &#x29FA;{}  {_{n}^{}}{{(\boldsymbol {a})}}{_{ }^{}} \), dado \(\left ({\left [\mathop {\overline {\left \lVert {A}\right \rVert }}\right ]}^{\hbox {-}1}\right )\) y \({\mathsf {A}}\mathbin {\large &#x29FA;}{\vec {b}}\) resulta que \( {\mu }_{\boldsymbol {x}} ^2\) y que \[ \boldsymbol {\mathsf {A}}= \begin {bmatrix} 1&3\\ 5&7 \end {bmatrix}. \] Si \(\begin {array}{r@{&#8239;}ccl} [f \circ g ]\colon & \mathbb {R}& \longrightarrow & \mathbb {R}^{n}\cr & x & \longmapsto & \displaystyle \boldsymbol {x} \end {array}\), el determinante de \(\left (  { }{{\boldsymbol {\mathsf {I}}}}{_{ { }{{\boldsymbol {\tau }}}{_{1}^{&rsquo;}} \cdots  { }{{\boldsymbol {\tau }}}{_{p}^{&rsquo;}} }^{}} \right )\) multiplicado por \(\textrm {col}_{i}\left (\boldsymbol {\mathsf {A}}^{\mathbin {\intercal }}\right )\) es: </p>]]></text>
+    <text><![CDATA[<p>Dado \(\mathsf {W}\), dado \(  { }{{\boldsymbol {z}}}{_{n}^{}} \large &#x29FA;{}  {_{n}^{}}{{(\boldsymbol {a})}}{_{ }^{}} \), dado \(\left ({\left [\mathop {\overline {\left \lVert {A}\right \rVert }}\right ]}^{\hbox {-}1}\right )\) y \({\mathsf {A}}\mathbin {\large &#x29FA;}{\vec {b}}\) resulta que \( {\mu }_{\boldsymbol {x}} ^2\) y que \[ \boldsymbol {\mathsf {A}}= \begin {bmatrix} 1&3\\ 5&7 \end {bmatrix}. \] Si \(\begin {array}{r@{&#8239;}ccl} [f \circ g ]\colon & \mathbb {R}& \longrightarrow & \mathbb {R}^{n}\cr & x & \longmapsto & \displaystyle \boldsymbol {x} \end {array}\), el determinante de \(\left (  { }{{\boldsymbol {\mathsf {I}}}}{_{ { }{{\boldsymbol {\tau }}}{_{1}^{&rsquo;}} \cdots  { }{{\boldsymbol {\tau }}}{_{p}^{&rsquo;}} }^{}} \right )\) multiplicado por \(\textrm {row}_{i}\left (\boldsymbol {\mathsf {A}}^{\mathbin {\intercal }}\right )\) es: </p>]]></text>
   </questiontext>
   <defaultgrade>1.0</defaultgrade>
   <generalfeedback format="html"><text/></generalfeedback>
