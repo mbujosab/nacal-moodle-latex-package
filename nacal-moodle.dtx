@@ -20,12 +20,12 @@
 %<package>\ProvidesPackage{nacal-moodle}
 %<package>    [2023/01/08 v1.0 Notación Asociativa para un Curso de Álgebra en Moodle]
 %<package>\RequirePackage{moodle}
-%<package>\RequirePackageWithOptions{nacal}
 %<package>\DeclareOption{esp}{\html@def\eng#1#2{#1}}
 %<package>\DeclareOption{eng}{\html@def\eng#1#2{#2}}
 %<package>\DeclareOption*{\PackageWarning{nacal-moodle}{Unknown ‘\CurrentOption’}}
 %<package>\ExecuteOptions{esp}
 %<package>\ProcessOptions\relax
+%<package>\RequirePackageWithOptions{nacal}
 % 
 %<*driver>
 \documentclass{ltxdoc}
@@ -5038,7 +5038,7 @@
 % \begin{macro}{\PSpan}
 % Espacio semi-euclídeo de probabilidad generado por un sistema
 %    \begin{macrocode}
-\html@def\PSpan#1{\EV{L{\!\!{\scriptscriptstyle{{}^P}}}}\Parentesis{#1}}
+\html@def\PSpan#1{\EV{L{\!\!{\scriptstyle{{}^\mathbb{_P}}}}}\Parentesis{#1}}
 %    \end{macrocode}
 % \end{macro}
 %

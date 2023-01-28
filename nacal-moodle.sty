@@ -24,12 +24,12 @@
 \ProvidesPackage{nacal-moodle}
     [2023/01/08 v1.0 Notación Asociativa para un Curso de Álgebra en Moodle]
 \RequirePackage{moodle}
-\RequirePackageWithOptions{nacal}
 \DeclareOption{esp}{\html@def\eng#1#2{#1}}
 \DeclareOption{eng}{\html@def\eng#1#2{#2}}
 \DeclareOption*{\PackageWarning{nacal-moodle}{Unknown ‘\CurrentOption’}}
 \ExecuteOptions{esp}
 \ProcessOptions\relax
+\RequirePackageWithOptions{nacal}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% --- Conjuntos de números
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -526,7 +526,7 @@
 \html@def\Cols#1{\EspacioCol\Parentesis{#1}}
 \html@def\cols#1{\Cols{\Mat{#1}}}
 \html@def\Span#1{\EV{L}\Parentesis{#1}}
-\html@def\PSpan#1{\EV{L{\!\!{\scriptscriptstyle{{}^P}}}}\Parentesis{#1}}
+\html@def\PSpan#1{\EV{L{\!\!{\scriptstyle{{}^\mathbb{_P}}}}}\Parentesis{#1}}
 \html@def\coord  #1#2{\Ridx{#1}{\Ridx{\mathbin{/}}{#2}}}
 \html@def\coordP #1#2{\coord{\Parentesis{#2}}{#1}}
 \html@def\coordPE#1#2{\Parentesis{\coord{#2}{#1}}}
