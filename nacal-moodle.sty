@@ -22,7 +22,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[2005/12/01]
 \ProvidesPackage{nacal-moodle}
-    [2023/01/08 v1.0 Notación Asociativa para un Curso de Álgebra en Moodle]
+    [2023/09/22 v1.1 Notación Asociativa para un Curso de Álgebra en Moodle]
 \RequirePackage{moodle}
 \DeclareOption{esp}{\html@def\eng#1#2{#1}}
 \DeclareOption{eng}{\html@def\eng#1#2{#2}}
@@ -36,7 +36,13 @@
 \html@def\Nn{\mathbb{N}}
 \html@def\Zz{\mathbb{Z}}
 \html@def\Rr{\mathbb{R}}
-\html@def\CC{\mathbb{C}}
+\html@def\Cc{\mathbb{C}}
+\html@def\Kk{\mathbb{K}}
+\html@def\N { \Nn }
+\html@def\Z { \Zz }
+\html@def\R { \Rr }
+\html@def\CC{ \Cc }
+\html@def\K { \Kk }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% --- Paréntesis y corchetes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -545,9 +551,137 @@
 %% --- Estadística
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \html@def\Estmc#1{ \widehat{#1} }
+\html@def\VEstmc#1{ \widehat{\Vect{#1}} }
+\html@def\Estmd #1{ \ColorA{\Estmc{#1}} }
+\html@def\VEstmd#1{ \Vect{\Estmd{#1}}   }
+\html@def\MCO#1#2{ \InvMTM*{#2}\MTV{#2}{#1} }
+\html@def\Serror{e}
+\html@def\resi#1{ \Estmc{\Serror}_{#1} }
+\html@def\res{ \Estmc{\Vect{\Serror}} }
+\html@def\ajusteMLT{ \Vect{y} = \widehat{\beta}\Vect{1} + \res }
+\html@def\ajusteMLS{ \Vect{y} = \widehat{\beta_1}\Vect{1} + \widehat{\beta_2}\Vect{x} + \res }
+\html@def\ajusteMLG{ \Vect{y} = \Mat{X}{\widehat{\Vect{\beta}}} + \res }
 \html@def\Media#1{ \widebar{#1} }
 \html@def\Smedia{\mu}
-\html@def\media#1{ {\Smedia}_{#1} }
+\html@def\SmediaM{m}
+\html@def\media #1{ {\Smedia}_{#1} }
+\html@def\mediap#1{\media{\parentesis {#1}} }
+\html@def\mediaP#1{\media{\Parentesis {#1}} }
+\html@def\mediaM #1{ {\SmediaM}_{#1} }
+\html@def\mediaMp#1{\media{\parentesis {#1}} }
+\html@def\mediaMP#1{\media{\Parentesis {#1}} }
+\html@def\Scov{\sigma}
+\html@def\ScovM{s}
+\html@def\Svar{\Scov^2}
+\html@def\SvarM{\ScovM^2}
+\html@def\ScvarM{\mathfrak{s}^2}
+\html@def\dt #1{ \Scov_{#1} }
+\html@def\dtp#1{ \dt{\parentesis{#1}} }
+\html@def\dtP#1{ \dt{\Parentesis{#1}} }
+\html@def\dtM #1{ \ScovM_{#1} }
+\html@def\dtMp#1{ \dtM{\parentesis{#1}} }
+\html@def\dtMP#1{ \dtM{\Parentesis{#1}} }
+\html@def\var #1{ \Svar_{#1} }
+\html@def\varp#1{ \var{\parentesis {#1}} }
+\html@def\varP#1{ \var{\Parentesis {#1}} }
+\html@def\varM #1{ \SvarM_{#1} }
+\html@def\varMp#1{ \varM{\parentesis {#1}} }
+\html@def\varMP#1{ \varM{\Parentesis {#1}} }
+\html@def\cvarM #1{ \ScvarM_{#1} }
+\html@def\cvarMp#1{ \cvarM{\parentesis {#1}} }
+\html@def\cvarMP#1{ \cvarM{\Parentesis {#1}} }
+\html@def\cov #1#2{ \Scov_{#1#2} }
+\html@def\covp#1#2{ \cov{\parentesis {#1#2}} }
+\html@def\covP#1#2{ \cov{\Parentesis {#1#2}} }
+\html@def\covM #1#2{ \ScovM_{#1#2} }
+\html@def\covMp#1#2{ \covM{\parentesis {#1#2}} }
+\html@def\covMP#1#2{ \covM{\Parentesis {#1#2}} }
+\html@def\Scorr{\rho}
+\html@def\ScorrM{r}
+\html@def\corr #1#2{ \Scorr_{#1#2} }
+\html@def\corrp#1#2{ \corr{\parentesis {#1#2}} }
+\html@def\corrP#1#2{ \corr{\Parentesis {#1#2}} }
+\html@def\corrM #1#2{ \ScorrM_{#1#2} }
+\html@def\corrMp#1#2{ \corrM{\parentesis {#1#2}} }
+\html@def\corrMP#1#2{ \corrM{\Parentesis {#1#2}} }
+\html@def\indUno{\&\#x1D7D9;}
+\html@def\indCero{\&\#x1D7D8;}
+\html@def\ind#1{ {\mathbb{1}}_{{#1}} }
+\html@def\ind#1{ {\indUno}_{#1} }
+\html@def\ColorA#1{#1}
+\html@def\VColorA#1{ \Vect{\ColorA{#1}} }
+\html@def\VAn#1#2{ \ColorA{{#1}_{#2}} }
+\html@def\VA#1{ \VAn{#1}{} }
+\html@def\spro{\mathbb{P}}
+\html@def\PRO#1{ \spro\parentesis{#1} }
+\html@def\PRObh#1#2{ \spro_{_{#2}\!}\parentesis{#1} }
+\html@def\VAind#1{ \VA{\ind{#1}} }
+\html@def\VAindCero{ \VA{\indCero} }
+\html@def\VAindUno{ \VA{\indUno} }
+\html@def\VVA#1{ \Vect{\VA{#1}} }
+\html@def\MVA #1{ \Mat{\VA{#1}} }
+\html@def\MVAp#1{ \parentesis{\Mat{\VA{#1}}} }
+\html@def\MVAP#1{ \Parentesis{\Mat{\VA{#1}}} }
+\html@def\MVAT  #1{ \Trans  {\MVA{#1}} }
+\html@def\MVATp #1{ \Transp {\MVA{#1}} }
+\html@def\MVATP #1{ \TransP {\MVA{#1}} }
+\html@def\MVATpE#1{ \TranspE{\MVA{#1}} }
+\html@def\MVATPE#1{ \TransPe{\MVA{#1}} }
+\html@def\SVA#1{ \ColorA{\mathsf{#1}} }
+\html@def\SVAT#1{ \Trans{{\SVA{#1}}} }
+\html@def\perturbacion{U}
+\html@def\per{\VA{\perturbacion}}
+\html@def\peri{ \VAn{\perturbacion}{n} }
+\html@def\Vper{\VVA{\perturbacion}}
+\html@def\esperanza{\text{E}}
+\html@def\E#1{ \esperanza\parentesis{#1} }
+\html@def\desviaciontipica{\text{Dt}}
+\html@def\Dt#1{ \desviaciontipica\Parentesis{#1} }
+\html@def\varianza{\text{Var}}
+\html@def\Var#1{ \varianza\parentesis{#1} }
+\html@def\covarianza{\text{Cov}}
+\html@def\Cov#1#2{\covarianza\Parentesis{#1,#2}}
+\html@def\correlacion{\text{Corr}}
+\html@def\Corr#1#2{\correlacion\Parentesis{#1,#2}}
+\html@def\ECond#1#2{ \ColorA{\mathbb{E}} {\parentesis {#1 \mid   #2 } } }
+\html@def\ECondYX#1#2{ \ECond {#1} {\SVA{#2}} }
+\html@def\DtCond#1#2{ \ColorA{\mathbb{D}t} \parentesis {#1\mid #2} }
+\html@def\VarCond#1#2{ \ColorA{\mathbb{V}\!ar} \parentesis {#1\mid #2} }
+\html@def\VarCondYX#1#2{ \VarCond {#1}{\SVA{#2}} }
+\html@def\CovCond#1#2#3{ \ColorA{\mathbb{C}\!ov} \parentesis {#1,#2\mid#3} }
+\html@def\CovCondXYZ#1#2#3{ \CovCond {#1}{#2}{\SVA{#3}} }
+\html@def\MLT{ \VA{Y} = \beta_1\VAindUno + \per }
+\html@def\MLS{ \VA{Y} = \beta_1\VAindUno + \beta_2\VA{X} + \per }
+\html@def\MLG{ \VA{Y} = \SVA{X}\Vect{\beta} + \per }
+\html@def\masMLT{ \VVA{Y} = \beta_1\VVA{1} + \Vper }
+\html@def\masMLS{ \VVA{Y} = \beta_1\VVA{1} + \beta_2\VVA{X} + \Vper }
+\html@def\masMLG{ \VVA{Y} = \MVA{X}\Vect{\beta} + \Vper }
+\html@def\SupI{ \MLG }
+\html@def\SupII{ \ECondYX{\per}{X}=\VAindCero }
+\html@def\SupIII{ \ECondYX{\per^2}{X}=\sigma^2\VAindUno }
+\html@def\SupIV{ \E{\SVAT{X}\SVA{X}} \textrm{ es invertible} }
+\html@def\SupIImas{ \ECond{\VVA{\per}}{\MVA{X}}=\VVA{0} }
+\html@def\SupIIImas{ \VarCond{\VVA{\per}}{\MVA{X}}=\sigma^2\MVA{I} }
+\html@def\SupIVmas{ \E{\MVAT{X}\MVA{X}} \textrm{ es invertible} }
+\html@def\SupVmas{ \VVA{\per}\sim\Normal{\Vect{0}}{\sigma^2\Mat{I}} }
+\html@def\normal{\mathit{N}}
+\html@def\tstudent{\mathit{t}}
+\html@def\tstudent{\mathit{F}}
+\html@def\Normal#1#2{ \normal\left(#1,\,#2\right) }
+\html@def\TStudent#1{ \tstudent_{\left(#1\right)} }
+\html@def\FSnedecor#1#2{ \fsnedecor_{\!\left(#1,#2\right)} }
+\html@def\ChiCuadrado#1{ \chi^2_{\left( #1\right)} }
+\html@def\ValorC#1#2#3{ {\it #1\/}_{_{#2}}^{\langle#3\rangle} }
+\html@def\Hnula   { H_0 }
+\html@def\Halt    { H_1 }
+\html@def\Rcritica{ RC  }
+\html@def\Racept  { RA  }
+\html@def\EstmcDt#1{ \Estmc{\desviaciontipica}\Parentesis{#1} }
+\html@def\EstmdDt#1{ \Estmd{\desviaciontipica}\Parentesis{#1} }
+\html@def\EstmcVar#1{ \Estmc{\varianza}\Parentesis{#1} }
+\html@def\EstmdVar#1{ \Estmd{\varianza}\Parentesis{#1} }
+\html@def\EstmcCov#1#2{ \Estmc{\covarianza}\Parentesis{#1,#2} }
+\html@def\EstmdCov#1#2{ \Estmd{\covarianza}\Parentesis{#1,#2} }
 \endinput
 %%
 %% End of file `nacal-moodle.sty'.
