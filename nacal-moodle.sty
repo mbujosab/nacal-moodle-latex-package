@@ -666,7 +666,7 @@
 \html@def\SupVmas{ \VVA{\per}\sim\Normal{\Vect{0}}{\sigma^2\Mat{I}} }
 \html@def\normal{\mathit{N}}
 \html@def\tstudent{\mathit{t}}
-\html@def\tstudent{\mathit{F}}
+\html@def\fsnedecor{\mathit{F}}
 \html@def\Normal#1#2{ \normal\left(#1,\,#2\right) }
 \html@def\TStudent#1{ \tstudent_{\left(#1\right)} }
 \html@def\FSnedecor#1#2{ \fsnedecor_{\!\left(#1,#2\right)} }
@@ -676,12 +676,19 @@
 \html@def\Halt    { H_1 }
 \html@def\Rcritica{ RC  }
 \html@def\Racept  { RA  }
+\html@def\testad{ \mathcal{T} }
+\html@def\testadistico{ \Estmc{\testad} }
+\html@def\Testadistico{ \ColorA{\testad} }
+\html@def\festad{ \mathcal{F} }
+\html@def\festadistico{ \Estmc{\festad} }
+\html@def\Festadistico{ \ColorA{\festad} }
 \html@def\EstmcDt#1{ \Estmc{\desviaciontipica}\Parentesis{#1} }
 \html@def\EstmdDt#1{ \Estmd{\desviaciontipica}\Parentesis{#1} }
 \html@def\EstmcVar#1{ \Estmc{\varianza}\Parentesis{#1} }
 \html@def\EstmdVar#1{ \Estmd{\varianza}\Parentesis{#1} }
 \html@def\EstmcCov#1#2{ \Estmc{\covarianza}\Parentesis{#1,#2} }
 \html@def\EstmdCov#1#2{ \Estmd{\covarianza}\Parentesis{#1,#2} }
+\html@def\peque{}
 \endinput
 %%
 %% End of file `nacal-moodle.sty'.

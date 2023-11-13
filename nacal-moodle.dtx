@@ -3663,6 +3663,38 @@
 %   \fbox{$\Racept$}
 % \end{center}
 % 
+% \DescribeMacro{\testadistico}
+% El comando \cs{testadistico} no tiene argumentos y denota el valor tomado por el estadístico t de student
+% \begin{center}
+%   |\testadistico|
+%   \hspace{1.2cm}
+%   \fbox{$\testadistico$}
+% \end{center}
+% 
+% \DescribeMacro{\Testadistico}
+% El comando \cs{Testadistico} no tiene argumentos y denota el estadístico t de student
+% \begin{center}
+%   |\Testadistico|
+%   \hspace{1.2cm}
+%   \fbox{$\Testadistico$}
+% \end{center}
+% 
+% \DescribeMacro{\festadistico}
+% El comando \cs{festadistico} no tiene argumentos y denota el valor tomado por el estadístico F de Snedecor
+% \begin{center}
+%   |\festadistico|
+%   \hspace{1.2cm}
+%   \fbox{$\festadistico$}
+% \end{center}
+% 
+% \DescribeMacro{\Festadistico}
+% El comando \cs{Festadistico} no tiene argumentos y denota el estadístico F de Snedecor
+% \begin{center}
+%   |\Festadistico|
+%   \hspace{1.2cm}
+%   \fbox{$\Festadistico$}
+% \end{center}
+% 
 % \DescribeMacro{\EstmcDt}
 % El comando \cs{EstmcDt} tiene 1 argumento \cs{EstmcDt}\marg{objeto} y denota la estimación de la  desviación típica del \marg{objeto}
 % \begin{center}
@@ -6705,7 +6737,7 @@
 % \begin{macro}{\fsnedecor}
 % Símbolo de la distribución F de Snedecor
 %    \begin{macrocode}
-\html@def\tstudent{\mathit{F}}
+\html@def\fsnedecor{\mathit{F}}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -6767,6 +6799,34 @@
 % \end{macro}
 %
 %
+% \begin{macro}{\testad}
+% \begin{macro}{\testadistico}
+% \begin{macro}{\Testadistico}
+% Estadístico t de student
+%    \begin{macrocode}
+\html@def\testad{ \mathcal{T} }
+\html@def\testadistico{ \Estmc{\testad} }
+\html@def\Testadistico{ \ColorA{\testad} }
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+%
+% \begin{macro}{\festad}
+% \begin{macro}{\festadistico}
+% \begin{macro}{\Festadistico}
+% Estadístico t de student
+%    \begin{macrocode}
+\html@def\festad{ \mathcal{F} }
+\html@def\festadistico{ \Estmc{\festad} }
+\html@def\Festadistico{ \ColorA{\festad} }
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+%
 % \begin{macro}{\EstmcDt}
 % Estimación de la desviación típica
 %    \begin{macrocode}
@@ -6811,6 +6871,14 @@
 % Estimador de la covarianza
 %    \begin{macrocode}
 \html@def\EstmdCov#1#2{ \Estmd{\covarianza}\Parentesis{#1,#2} }
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\peque}
+% No hace nada
+%    \begin{macrocode}
+\html@def\peque{}
 %    \end{macrocode}
 % \end{macro}
 %
