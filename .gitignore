@@ -12,7 +12,9 @@
 *.~
 
 ## otros
-makefile
-NAcAL-MoodleTex.*
+NAcAL-MoodleTex.tex
+NAcAL-MoodleTex.pdf
+# enlace local a nacal.sty del repositorio NAcALTex (solo para compilar aquí)
+/nacal.sty
 texput.log
 .projectile
