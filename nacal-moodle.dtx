@@ -18,7 +18,7 @@
 % \iffalse
 %<package>\NeedsTeXFormat{LaTeX2e}[2005/12/01]
 %<package>\ProvidesPackage{nacal-moodle}
-%<package>    [2023/09/22 v1.1 Notación Asociativa para un Curso de Álgebra en Moodle]
+%<package>    [2026/11/09 v1.2 Notación Asociativa para un Curso de Álgebra en Moodle]
 %<package>\RequirePackage{moodle}
 %<package>\DeclareOption{esp}{\html@def\eng#1#2{#1}}
 %<package>\DeclareOption{eng}{\html@def\eng#1#2{#2}}
@@ -69,6 +69,7 @@
 %
 % \changes{v1.0}{2022/12/04}{Versión inicial}
 % \changes{v1.1}{2023/09/22}{Inclusión de notación para Econometría}
+% \changes{v1.2}{2026/11/09}{Como nacal v1.6: \cs{widebar} deja de ser un operador; «esp» como operador. \cs{EOEpr} llamaba a \cs{Oepr}, que no existe}
 %
 % \GetFileInfo{nacal-moodle.sty}
 %
@@ -350,7 +351,7 @@
 % \subsection{Operadores}
 % \subsubsection{Conjugación y concatenación}
 % 
-% Definimos un operador con una barra ancha.\\
+% Definimos una barra ancha.\\
 % \DescribeMacro{\widebar}
 % El comando \cs{widebar} tiene 1 argumento,\;\cs{widebar}\marg{objeto},\;
 % y pone una barra ancha sobre el \marg{objeto}.
@@ -3935,7 +3936,7 @@
 % \begin{macro}{\widebar}
 % Barra ancha para indicar media o conjugación
 %    \begin{macrocode}
-\html@def\widebar#1{\mathop{\overline{#1}}}
+\html@def\widebar#1{\overline{#1}}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -4382,7 +4383,7 @@
 % \begin{macro}{\EOEsu}
 % Espejo de oper. elem. que suma un múltiplo de una componente a otra
 %    \begin{macrocode}
-\html@def\EOEsu#1#2#3{esp\Big(\OEsu{#1}{#2}{#3}\Big)}
+\html@def\EOEsu#1#2#3{\operatorname{esp}\Bigl(\OEsu{#1}{#2}{#3}\Bigr)}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -4390,7 +4391,7 @@
 % \begin{macro}{\EOEpr}
 % Espejo de oper. elem. que multiplica una componente por un número
 %    \begin{macrocode}
-\html@def\EOEpr#1#2{esp\Big(\Oepr{#1}{#2}\Big)}
+\html@def\EOEpr#1#2{\operatorname{esp}\Bigl(\OEpr{#1}{#2}\Bigr)}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -4418,8 +4419,8 @@
 % \begin{macro}{\dEOEg}
 % Operación espejo de una elemental genérica con exponente y sin exponente
 %    \begin{macrocode}
-\html@def\dEOEgE#1#2{esp(\dOEgE{#1}{#2})}
-\html@def\dEOEg#1{esp(\dOEg{#1})}
+\html@def\dEOEgE#1#2{\operatorname{esp}(\dOEgE{#1}{#2})}
+\html@def\dEOEg#1{\operatorname{esp}(\dOEg{#1})}
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -4436,7 +4437,7 @@
 % \begin{macro}{\dEInvOEg}
 % Operación espejo de la inversa de una elemental genérica
 %    \begin{macrocode}
-\html@def\dEInvOEg#1{esp(\dInvOEg{#1})}
+\html@def\dEInvOEg#1{\operatorname{esp}(\dInvOEg{#1})}
 %    \end{macrocode}
 % \end{macro}
 %

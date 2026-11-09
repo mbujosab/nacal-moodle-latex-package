@@ -51,7 +51,7 @@ mbujosab@ucm.es
 - =<<fecha y versión>>=
 #+NAME: fecha y versión
 #+BEGIN_SRC tex :results silent
-2023/09/22 v1.1
+2026/11/09 v1.2
 #+END_SRC
 
 - =<<breve descripción>>=
@@ -159,6 +159,7 @@ El fichero principal es el fichero ~.dtx~:
 %
 % \changes{v1.0}{2022/12/04}{Versión inicial}
 % \changes{v1.1}{2023/09/22}{Inclusión de notación para Econometría}
+% \changes{v1.2}{2026/11/09}{Como nacal v1.6: \cs{widebar} deja de ser un operador; «esp» como operador. \cs{EOEpr} llamaba a \cs{Oepr}, que no existe}
 %
 % \GetFileInfo{<<package>>.sty}
 %
@@ -616,7 +617,7 @@ subíndice a la derecha del objeto
 #+BEGIN_SRC tex :noweb no-export :results none :exports code
 \subsubsection{Conjugación y concatenación}
 
-Definimos un operador con una barra ancha.\\
+Definimos una barra ancha.\\
 \DescribeMacro{\widebar}
 El comando \cs{widebar} tiene 1 argumento,\;\cs{widebar}\marg{objeto},\;
 y pone una barra ancha sobre el \marg{objeto}.
@@ -4398,7 +4399,7 @@ El comando \cs{EstmdCov} tiene 2 argumentos \cs{EstmdCov}\marg{objeto1}\marg{obj
 % \begin{macro}{\widebar}
 % Barra ancha para indicar media o conjugación
 %    \begin{macrocode}
-\html@def\widebar#1{\mathop{\overline{#1}}}
+\html@def\widebar#1{\overline{#1}}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -4878,7 +4879,7 @@ El comando \cs{EstmdCov} tiene 2 argumentos \cs{EstmdCov}\marg{objeto1}\marg{obj
 % \begin{macro}{\EOEsu}
 % Espejo de oper. elem. que suma un múltiplo de una componente a otra
 %    \begin{macrocode}
-\html@def\EOEsu#1#2#3{esp\Big(\OEsu{#1}{#2}{#3}\Big)}
+\html@def\EOEsu#1#2#3{\operatorname{esp}\Bigl(\OEsu{#1}{#2}{#3}\Bigr)}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -4886,7 +4887,7 @@ El comando \cs{EstmdCov} tiene 2 argumentos \cs{EstmdCov}\marg{objeto1}\marg{obj
 % \begin{macro}{\EOEpr}
 % Espejo de oper. elem. que multiplica una componente por un número
 %    \begin{macrocode}
-\html@def\EOEpr#1#2{esp\Big(\Oepr{#1}{#2}\Big)}
+\html@def\EOEpr#1#2{\operatorname{esp}\Bigl(\OEpr{#1}{#2}\Bigr)}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -4914,8 +4915,8 @@ El comando \cs{EstmdCov} tiene 2 argumentos \cs{EstmdCov}\marg{objeto1}\marg{obj
 % \begin{macro}{\dEOEg}
 % Operación espejo de una elemental genérica con exponente y sin exponente
 %    \begin{macrocode}
-\html@def\dEOEgE#1#2{esp(\dOEgE{#1}{#2})}
-\html@def\dEOEg#1{esp(\dOEg{#1})}
+\html@def\dEOEgE#1#2{\operatorname{esp}(\dOEgE{#1}{#2})}
+\html@def\dEOEg#1{\operatorname{esp}(\dOEg{#1})}
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -4932,7 +4933,7 @@ El comando \cs{EstmdCov} tiene 2 argumentos \cs{EstmdCov}\marg{objeto1}\marg{obj
 % \begin{macro}{\dEInvOEg}
 % Operación espejo de la inversa de una elemental genérica
 %    \begin{macrocode}
-\html@def\dEInvOEg#1{esp(\dInvOEg{#1})}
+\html@def\dEInvOEg#1{\operatorname{esp}(\dInvOEg{#1})}
 %    \end{macrocode}
 % \end{macro}
 %
