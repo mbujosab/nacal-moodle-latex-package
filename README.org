@@ -1,4 +1,4 @@
-** Paquete ~nacal-moodle~ para usar la notación del curso de Álgebra Lineal (y Econometría) en documentos bancos de preguntas de Moodle.
+** Paquete ~nacal-moodle~ para usar la notación del curso de Álgebra Lineal en documentos bancos de preguntas de Moodle.
 
 ~nacal-moodle~ es un paquete de $\LaTeX{}$ que redefine algunas de las
 macros del paquete [[https://github.com/mbujosab/nacal-latex-package][nacal.sty]] para emplear la notación del [[https://github.com/mbujosab/CursoDeAlgebraLineal/blob/master/libro.pdf][libro]] para
@@ -24,6 +24,17 @@ argumentos opcionales. Por tanto, ~nacal-moodle~ posee menos macros
 que el paquete ~nacal~. Además, para no perder ciertas
 funcionalidades, he tenido que duplicar algunas funciones (véase la
 documentación de ambos paquetes).
+
+*** Cambio en la versión 2.0: solo álgebra lineal
+Desde la versión 2.0 ~nacal-moodle~ (como ~nacal~) contiene únicamente
+la notación de álgebra lineal. Las definiciones para Moodle de la
+notación de probabilidad y econometría de las versiones 1.x están en
+el fichero congelado ~nacal-moodle-probabilidad.sty~, que se carga con
+la opción ~v1~ (junto a ~\usepackage[v1]{nacal}~):
+
+: \usepackage[v1]{nacal-moodle}
+
+La opción ~soloAL~ se acepta y no tiene efecto.
 
 *** Paquetes  de \LaTeX{} requeridos
 Tenga en cuenta que [[https://github.com/mbujosab/nacal-moodle-latex-package][nacal-moodle.sty]] por defecto carga [[https://ctan.org/pkg/moodle][moodle.sty]] así
