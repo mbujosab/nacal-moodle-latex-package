@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- This file was generated on 2023-01-28 by LuaLaTeX -->
-<!-- running on *NIX with the package moodle v0.8 -->
+<!-- This file was generated on 2026-11-11 by LuaLaTeX -->
+<!-- running on *NIX with the package moodle v0.9 -->
 
 <quiz>
  
@@ -15,7 +15,7 @@
     <text><![CDATA[PreguntaSinSentido]]></text>
   </name>
   <questiontext format="html">
-    <text><![CDATA[<p>Dado \(\mathsf {W}\), dado \(  { }{{\boldsymbol {z}}}{_{n}^{}} \large &#x29FA;{}  {_{n}^{}}{{(\boldsymbol {a})}}{_{ }^{}} \), dado \(\left ({\left [\mathop {\overline {\left \lVert {A}\right \rVert }}\right ]}^{\hbox {-}1}\right )\) y \({\mathsf {A}}\mathbin {\large &#x29FA;}{\vec {b}}\) resulta que \( {\mu }_{\boldsymbol {x}} ^2\) y que \[ \boldsymbol {\mathsf {A}}= \begin {bmatrix} 1&3\\ 5&7 \end {bmatrix}. \] Si \(\begin {array}{r@{&#8239;}ccl} [f \circ g ]\colon & \mathbb {R}& \longrightarrow & \mathbb {R}^{n}\cr & x & \longmapsto & \displaystyle \boldsymbol {x} \end {array}\), el determinante de \(\left (  { }{{\boldsymbol {\mathsf {I}}}}{_{ { }{{\boldsymbol {\tau }}}{_{1}^{&rsquo;}} \cdots  { }{{\boldsymbol {\tau }}}{_{p}^{&rsquo;}} }^{}} \right )\) multiplicado por \(\textrm {fila}_{i}\left (\boldsymbol {\mathsf {A}}^{\mathbin {\intercal }}\right )\) es: </p>]]></text>
+    <text><![CDATA[<p>Dado \(\mathsf {W}\), dado \(  { }{{\boldsymbol {z}}}{_{n}^{}} \large &#x29FA;{}  {_{n}^{}}{{(\boldsymbol {a})}}{_{ }^{}} \), dado \(\left ({\left [\overline {\left \lVert {A}\right \rVert }\right ]}^{\hbox {-}1}\right )\) y \({\mathsf {A}}\mathbin {\large &#x29FA;}{\vec {b}}\) resulta que \(\left \lVert {\boldsymbol {x}}\right \rVert ^2\) y que \[ \boldsymbol {\mathsf {A}}= \begin {bmatrix} 1&3\\ 5&7 \end {bmatrix}. \] Si \(\begin {array}{r@{&#8239;}ccl} [f \circ g ]\colon & \mathbb {R}& \longrightarrow & \mathbb {R}^{n}\cr & x & \longmapsto & \displaystyle \boldsymbol {x} \end {array}\), el determinante de \(\left (  { }{{\boldsymbol {\mathsf {I}}}}{_{ { }{{\boldsymbol {\tau }}}{_{1}^{&rsquo;}} \cdots  { }{{\boldsymbol {\tau }}}{_{p}^{&rsquo;}} }^{}} \right )\) multiplicado por \(\textrm {fila}_{i}\left (\boldsymbol {\mathsf {A}}^{\mathbin {\intercal }}\right )\) es: </p>]]></text>
   </questiontext>
   <defaultgrade>1.0</defaultgrade>
   <generalfeedback format="html"><text/></generalfeedback>
@@ -29,9 +29,6 @@
   </answer>
   <answer fraction="0" format="html">
     <text><![CDATA[<p>\(({\left (\boldsymbol {\mathsf {A}}^{\mathbin {\intercal }}\right )}^{\hbox {-}1})\)</p>]]></text>
-  </answer>
-  <answer fraction="0" format="html">
-    <text><![CDATA[<p>\(\mathcal {L{\!\!{\scriptstyle {{}^\mathbb {_P}}}}}\left (\mathsf {Z}\right )\)</p>]]></text>
   </answer>
   <answer fraction="0" format="html">
     <text><![CDATA[<p>\(  { }{{\vec {x}}}{_{  { }{{\mathbin {/}}}{_{\mathsf {Z}}^{}} }^{}} \)</p>]]></text>
@@ -58,7 +55,7 @@
     <text><![CDATA[<p>\(\left [  {_{{i}\mathbin {\mathbf {|}}}^{}}{{\boldsymbol {\mathsf {A}}}}{_{ }^{}} \right ]^{\mathbin {\intercal }}\)</p>]]></text>
   </answer>
   <answer fraction="0" format="html">
-    <text><![CDATA[<p>\(esp\Big (\underset {\left [{ \left (a\right ){\boldsymbol {j}}+{\boldsymbol {k}} }\right ]}{\boldsymbol {\tau }}\Big )\)</p>]]></text>
+    <text><![CDATA[<p>\(\operatorname {esp}\Bigl (\underset {\left [{ \left (a\right ){\boldsymbol {j}}+{\boldsymbol {k}} }\right ]}{\boldsymbol {\tau }}\Bigr )\)</p>]]></text>
   </answer>
   <answer fraction="0" format="html">
     <text><![CDATA[<p>\(\left &lt;{f(x)},{g(x)}\right &gt;\)</p>]]></text>
@@ -70,7 +67,7 @@
     <text><![CDATA[<p>\((\boldsymbol {\mathsf {A}}^{\mathbin {\intercal }})\boldsymbol {b}\)</p>]]></text>
   </answer>
   <answer fraction="0" format="html">
-    <text><![CDATA[<p>\(   { }{{\boldsymbol {\mathsf {A}}}}{_{{esp( { }{{\boldsymbol {\tau }}}{_{2}^{\hbox {-}1}} )}}^{}} \)</p>]]></text>
+    <text><![CDATA[<p>\(   { }{{\boldsymbol {\mathsf {A}}}}{_{{\operatorname {esp}( { }{{\boldsymbol {\tau }}}{_{2}^{\hbox {-}1}} )}}^{}} \)</p>]]></text>
   </answer>
   <answer fraction="0" format="html">
     <text><![CDATA[<p>\( { }{{\boldsymbol {\tau }}}{_{k}^{\hbox {-}1}} \)</p>]]></text>
